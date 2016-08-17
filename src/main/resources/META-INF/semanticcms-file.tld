@@ -78,4 +78,14 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 			<type>boolean</type>
 		</attribute>
 	</tag>
+	<function>
+		<description><![CDATA[
+			Checks if the given page, or optionally any of its child pages, has at least
+			one not-hidden File.
+		]]></description>
+		<name>hasFile</name>
+		<function-class>com.semanticcms.file.taglib.Functions</function-class>
+		<function-signature>boolean hasFile(com.semanticcms.core.model.Page,boolean)</function-signature>
+		<example>${p:hasFile(page, recursive)}</example>
+	</function>
 </taglib>
