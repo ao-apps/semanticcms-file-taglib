@@ -25,71 +25,21 @@ package com.semanticcms.file.taglib;
 import static com.aoindustries.servlet.filter.FunctionContext.getRequest;
 import static com.aoindustries.servlet.filter.FunctionContext.getResponse;
 import static com.aoindustries.servlet.filter.FunctionContext.getServletContext;
-import com.semanticcms.core.model.Element;
 import com.semanticcms.core.model.Page;
-import com.semanticcms.core.model.PageRef;
-import com.semanticcms.core.servlet.CaptureLevel;
-import com.semanticcms.core.servlet.CapturePage;
-import com.semanticcms.file.model.File;
+import com.semanticcms.file.servlet.FileUtils;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 final public class Functions {
 
 	public static boolean hasFile(Page page, boolean recursive) throws ServletException, IOException {
-		return hasFileRecursive(
+		return FileUtils.hasFile(
 			getServletContext(),
 			getRequest(),
 			getResponse(),
 			page,
-			recursive,
-			recursive ? new HashSet<PageRef>() : null
+			recursive
 		);
-	}
-
-	private static boolean hasFileRecursive(
-		ServletContext servletContext,
-		HttpServletRequest request,
-		HttpServletResponse response,
-		Page page,
-		boolean recursive,
-		Set<PageRef> seenPages
-	) throws ServletException, IOException {
-		for(Element e : page.getElements()) {
-			if((e instanceof File) && !((File)e).isHidden()) {
-				return true;
-			}
-		}
-		if(recursive) {
-			seenPages.add(page.getPageRef());
-			for(PageRef childRef : page.getChildPages()) {
-				if(
-					// Child not in missing book
-					childRef.getBook() != null
-					// Not already seen
-					&& !seenPages.contains(childRef)
-				) {
-					if(
-						hasFileRecursive(
-							servletContext,
-							request,
-							response,
-							CapturePage.capturePage(servletContext, request, response, childRef, CaptureLevel.META),
-							recursive,
-							seenPages
-						)
-					) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
 	}
 
 	/**
