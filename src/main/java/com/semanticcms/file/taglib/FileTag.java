@@ -30,11 +30,13 @@ import com.aoindustries.io.buffer.SegmentedWriter;
 import com.aoindustries.servlet.filter.TempFileContext;
 import com.semanticcms.core.model.ElementContext;
 import com.semanticcms.core.servlet.CaptureLevel;
+import com.semanticcms.core.servlet.PageRefResolver;
 import com.semanticcms.core.taglib.ElementTag;
 import com.semanticcms.file.model.File;
 import com.semanticcms.file.servlet.impl.FileImpl;
 import java.io.IOException;
 import java.io.Writer;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,12 +50,14 @@ public class FileTag extends ElementTag<File> {
 		super(new File());
 	}
 
+	private String book;
 	public void setBook(String book) {
-		element.setBook(book);
+		this.book = book==null || book.isEmpty() ? null : book;
 	}
 
+	private String path;
 	public void setPath(String path) {
-		element.setPath(path);
+		this.path = path==null || path.isEmpty() ? null : path;
 	}
 
 	public void setHidden(boolean hidden) {
@@ -64,9 +68,19 @@ public class FileTag extends ElementTag<File> {
 	@Override
 	protected void doBody(CaptureLevel captureLevel) throws JspException, IOException {
 		try {
-			super.doBody(captureLevel);
 			final PageContext pageContext = (PageContext)getJspContext();
+			final ServletContext servletContext = pageContext.getServletContext();
 			final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
+			// Resolve file now to catch problems earlier even in meta mode
+			element.setPageRef(
+				PageRefResolver.getPageRef(
+					servletContext,
+					request,
+					book,
+					path
+				)
+			);
+			super.doBody(captureLevel);
 			BufferWriter capturedOut;
 			if(captureLevel == CaptureLevel.BODY) {
 				// Enable temp files if temp file context active
@@ -86,7 +100,7 @@ public class FileTag extends ElementTag<File> {
 			}
 			try {
 				FileImpl.writeFileImpl(
-					pageContext.getServletContext(),
+					servletContext,
 					request,
 					(HttpServletResponse)pageContext.getResponse(),
 					capturedOut,
