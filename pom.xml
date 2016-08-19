@@ -30,7 +30,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 
 	<groupId>com.semanticcms</groupId>
 	<artifactId>semanticcms-file-taglib</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 
 	<name>SemanticCMS File Taglib</name>
@@ -57,7 +57,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		<connection>scm:git:git://github.com/aoindustries/semanticcms-file-taglib.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/semanticcms-file-taglib.git</developerConnection>
 		<url>http://github.com/aoindustries/semanticcms-file-taglib</url>
-		<tag>HEAD</tag>
+		<tag>semanticcms-file-taglib-1.0</tag>
 	</scm>
 
 	<repositories>
