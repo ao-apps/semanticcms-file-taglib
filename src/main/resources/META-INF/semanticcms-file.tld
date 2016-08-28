@@ -42,7 +42,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 			</p>
 			<p>
 				The onclick Ajax file opening is disabled when the documents are exporting,
-				as set by the "X-com-aoindustries-web-page-exporting: true" header.
+				as set by the "X-com-semanticcms-core-exporting: true" header.
 			</p>
 		]]></description>
 		<name>file</name>
