@@ -38,6 +38,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 	<name>SemanticCMS File Taglib</name>
 	<url>https://semanticcms.com/file/taglib/</url>
 	<description>Files nested within SemanticCMS pages and elements in a JSP environment.</description>
+	<inceptionYear>2013</inceptionYear>
 
 	<scm>
 		<connection>scm:git:git://github.com/aoindustries/semanticcms-file-taglib.git</connection>
