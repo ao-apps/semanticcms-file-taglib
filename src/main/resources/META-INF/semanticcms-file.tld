@@ -50,6 +50,18 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<body-content>scriptless</body-content>
 		<attribute>
 			<description><![CDATA[
+				The id used in URL anchors.
+				If not provided, is generated from the label.
+				Must be unique per page.
+				Ids generated from labels will be unique, but may change as page structure changes.
+			]]></description>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
 				The book containing the file.
 				Defaults to the book of the current JSP file.
 			]]></description>
