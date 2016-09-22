@@ -57,7 +57,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 			]]></description>
 			<name>id</name>
 			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
+			<rtexprvalue>false</rtexprvalue>
 			<type>java.lang.String</type>
 		</attribute>
 		<attribute>
@@ -86,7 +86,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 			]]></description>
 			<name>hidden</name>
 			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
+			<rtexprvalue>false</rtexprvalue>
 			<type>boolean</type>
 		</attribute>
 	</tag>
