@@ -22,12 +22,14 @@
  */
 package com.semanticcms.file.taglib;
 
+import com.aoindustries.encoding.Coercion;
 import com.aoindustries.io.TempFileList;
 import com.aoindustries.io.buffer.AutoTempFileWriter;
 import com.aoindustries.io.buffer.BufferResult;
 import com.aoindustries.io.buffer.BufferWriter;
 import com.aoindustries.io.buffer.SegmentedWriter;
 import com.aoindustries.servlet.filter.TempFileContext;
+import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.model.ElementContext;
 import com.semanticcms.core.servlet.CaptureLevel;
 import com.semanticcms.core.servlet.PageRefResolver;
@@ -36,6 +38,7 @@ import com.semanticcms.file.model.File;
 import com.semanticcms.file.servlet.impl.FileImpl;
 import java.io.IOException;
 import java.io.Writer;
+import javax.el.ELContext;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -50,14 +53,14 @@ public class FileTag extends ElementTag<File> {
 		super(new File());
 	}
 
-	private String book;
-	public void setBook(String book) {
-		this.book = book==null || book.isEmpty() ? null : book;
+	private Object book;
+	public void setBook(Object book) {
+		this.book = book;
 	}
 
-	private String path;
-	public void setPath(String path) {
-		this.path = path==null || path.isEmpty() ? null : path;
+	private Object path;
+	public void setPath(Object path) {
+		this.path = path;
 	}
 
 	public void setHidden(boolean hidden) {
@@ -69,15 +72,19 @@ public class FileTag extends ElementTag<File> {
 	protected void doBody(CaptureLevel captureLevel) throws JspException, IOException {
 		try {
 			final PageContext pageContext = (PageContext)getJspContext();
+			final ELContext elContext = pageContext.getELContext();
 			final ServletContext servletContext = pageContext.getServletContext();
 			final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
+			// Evaluate expressions
+			String bookStr = Coercion.nullIfEmpty(resolveValue(book, String.class, elContext));
+			String pathStr = Coercion.nullIfEmpty(resolveValue(path, String.class, elContext));
 			// Resolve file now to catch problems earlier even in meta mode
 			element.setPageRef(
 				PageRefResolver.getPageRef(
 					servletContext,
 					request,
-					book,
-					path
+					bookStr,
+					pathStr
 				)
 			);
 			super.doBody(captureLevel);
