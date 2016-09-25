@@ -38,6 +38,7 @@ import com.semanticcms.file.servlet.impl.FileImpl;
 import java.io.IOException;
 import java.io.Writer;
 import javax.el.ELContext;
+import javax.el.ValueExpression;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -48,13 +49,13 @@ import javax.servlet.jsp.PageContext;
 
 public class FileTag extends ElementTag<File> {
 
-	private Object book;
-	public void setBook(Object book) {
+	private ValueExpression book;
+	public void setBook(ValueExpression book) {
 		this.book = book;
 	}
 
-	private Object path;
-	public void setPath(Object path) {
+	private ValueExpression path;
+	public void setPath(ValueExpression path) {
 		this.path = path;
 	}
 

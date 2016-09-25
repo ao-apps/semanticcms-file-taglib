@@ -60,8 +60,6 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 			]]></description>
 			<name>id</name>
 			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
-			<type>java.lang.String</type>
 			<deferred-value>
 				<type>java.lang.String</type>
 			</deferred-value>
@@ -73,8 +71,6 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 			]]></description>
 			<name>book</name>
 			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
-			<type>java.lang.String</type>
 			<deferred-value>
 				<type>java.lang.String</type>
 			</deferred-value>
@@ -85,8 +81,6 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 			]]></description>
 			<name>path</name>
 			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
-			<type>java.lang.String</type>
 			<deferred-value>
 				<type>java.lang.String</type>
 			</deferred-value>
