@@ -22,7 +22,6 @@
  */
 package com.semanticcms.file.taglib;
 
-import com.aoindustries.encoding.Coercion;
 import com.aoindustries.io.TempFileList;
 import com.aoindustries.io.buffer.AutoTempFileWriter;
 import com.aoindustries.io.buffer.BufferResult;
@@ -49,10 +48,6 @@ import javax.servlet.jsp.PageContext;
 
 public class FileTag extends ElementTag<File> {
 
-	public FileTag() {
-		super(new File());
-	}
-
 	private Object book;
 	public void setBook(Object book) {
 		this.book = book;
@@ -63,31 +58,35 @@ public class FileTag extends ElementTag<File> {
 		this.path = path;
 	}
 
+	private boolean hidden;
 	public void setHidden(boolean hidden) {
-		element.setHidden(hidden);
+		this.hidden = hidden;
+	}
+
+	@Override
+	protected File createElement() {
+		return new File();
 	}
 
 	private BufferResult writeMe;
 	@Override
-	protected void doBody(CaptureLevel captureLevel) throws JspException, IOException {
+	protected void doBody(File file, CaptureLevel captureLevel) throws JspException, IOException {
 		try {
 			final PageContext pageContext = (PageContext)getJspContext();
 			final ELContext elContext = pageContext.getELContext();
 			final ServletContext servletContext = pageContext.getServletContext();
 			final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
-			// Evaluate expressions
-			String bookStr = Coercion.nullIfEmpty(resolveValue(book, String.class, elContext));
-			String pathStr = Coercion.nullIfEmpty(resolveValue(path, String.class, elContext));
 			// Resolve file now to catch problems earlier even in meta mode
-			element.setPageRef(
+			file.setPageRef(
 				PageRefResolver.getPageRef(
 					servletContext,
 					request,
-					bookStr,
-					pathStr
+					resolveValue(book, String.class, elContext),
+					resolveValue(path, String.class, elContext)
 				)
 			);
-			super.doBody(captureLevel);
+			file.setHidden(hidden);
+			super.doBody(file, captureLevel);
 			BufferWriter capturedOut;
 			if(captureLevel == CaptureLevel.BODY) {
 				// Enable temp files if temp file context active
@@ -111,7 +110,7 @@ public class FileTag extends ElementTag<File> {
 					request,
 					(HttpServletResponse)pageContext.getResponse(),
 					capturedOut,
-					element
+					file
 				);
 			} finally {
 				if(capturedOut != null) capturedOut.close();
