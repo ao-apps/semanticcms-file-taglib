@@ -4,7 +4,7 @@ Files nested within [SemanticCMS](https://semanticcms.com/) pages and elements i
 ## Project Links
 * [Project Home](https://semanticcms.com/file/taglib/)
 * [API Docs](https://semanticcms.com/file/taglib/apidocs/)
-* [Maven Central Repository](http://search.maven.org/#search|gav|1|g:%22com.semanticcms%22%20AND%20a:%22semanticcms-file-taglib%22)
+* [Maven Central Repository](https://search.maven.org/#search|gav|1|g:%22com.semanticcms%22%20AND%20a:%22semanticcms-file-taglib%22)
 * [GitHub](https://github.com/aoindustries/semanticcms-file-taglib)
 
 ## Contact Us
