@@ -104,6 +104,18 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<name>hasFile</name>
 		<function-class>com.semanticcms.file.taglib.Functions</function-class>
 		<function-signature>boolean hasFile(com.semanticcms.core.model.Page,boolean)</function-signature>
-		<example>${p:hasFile(page, recursive)}</example>
+		<example>${file:hasFile(page, recursive)}</example>
+	</function>
+	<function>
+		<description><![CDATA[
+			Determines if local file opening is allowed.
+			Uses reflection to avoid hard dependency on semanticcms-openfile-servlet.
+			This means OpenFile may be enabled for development, while the semanticcms-openfile-servlet
+			is not even included for production.
+		]]></description>
+		<name>isOpenFileAllowed</name>
+		<function-class>com.semanticcms.file.taglib.Functions</function-class>
+		<function-signature>boolean isOpenFileAllowed()</function-signature>
+		<example>${file:isOpenFileAllowed()}</example>
 	</function>
 </taglib>

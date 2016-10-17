@@ -42,6 +42,13 @@ final public class Functions {
 		);
 	}
 
+	public static boolean isOpenFileAllowed() throws ServletException {
+		return FileUtils.isOpenFileAllowed(
+			getServletContext(),
+			getRequest()
+		);
+	}
+
 	/**
 	 * Make no instances.
 	 */
