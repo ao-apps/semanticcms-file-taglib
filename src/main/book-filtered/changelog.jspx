@@ -36,6 +36,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T23:59:22-0500"
+		dateModified="2016-11-02T02:48:52-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT')}">
@@ -50,6 +51,11 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 					<li>New <ao:a href="https://www.aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a> POM to simplify <code>pom.xml</code> files.</li>
 					<li>Project documentation moved to per-project book in <core:link book="/" page="/index.jspx" /> format.</li>
 					<li>Added changelog as top-level project link.</li>
+					<li>
+						Taglib tlib-version is now set automatically during build.
+						Unfortunately, we cannot include "-SNAPSHOT" on snapshot builds due to the requirement of "Dewey decimal"
+						for taglib versions.  The unambiguous full version is annotated via comment.
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
