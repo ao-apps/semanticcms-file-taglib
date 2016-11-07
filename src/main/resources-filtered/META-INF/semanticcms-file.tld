@@ -25,7 +25,9 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
 	version="2.1">
-	<description>@{project.description}</description>
+	<description><![CDATA[
+		<p>@{project.description}</p>
+	]]></description>
 	<display-name>@{project.name}</display-name>
 	<tlib-version>
 		<!-- Release: @{project.version} -->
@@ -56,10 +58,12 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<body-content>scriptless</body-content>
 		<attribute>
 			<description><![CDATA[
-				The id used in URL anchors.
-				If not provided, is generated from the label.
-				Must be unique per page.
-				Ids generated from labels will be unique, but may change as page structure changes.
+				<p>
+					The id used in URL anchors.
+					If not provided, is generated from the label.
+					Must be unique per page.
+					Ids generated from labels will be unique, but may change as page structure changes.
+				</p>
 			]]></description>
 			<name>id</name>
 			<required>false</required>
@@ -69,8 +73,10 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				The book containing the file.
-				Defaults to the book of the current JSP file.
+				<p>
+					The book containing the file.
+					Defaults to the book of the current JSP file.
+				</p>
 			]]></description>
 			<name>book</name>
 			<required>false</required>
@@ -80,7 +86,9 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				The page-relative path to the file.
+				<p>
+					The page-relative path to the file.
+				</p>
 			]]></description>
 			<name>path</name>
 			<required>true</required>
@@ -90,8 +98,10 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				When "true", the file is displayed on the page but not added to the list of files on the page.
-				Defaults to "false".
+				<p>
+					When "true", the file is displayed on the page but not added to the list of files on the page.
+					Defaults to "false".
+				</p>
 			]]></description>
 			<name>hidden</name>
 			<required>false</required>
@@ -101,8 +111,10 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 	</tag>
 	<function>
 		<description><![CDATA[
-			Checks if the given page, or optionally any of its child pages, has at least
-			one not-hidden File.
+			<p>
+				Checks if the given page, or optionally any of its child pages, has at least
+				one not-hidden File.
+			</p>
 		]]></description>
 		<name>hasFile</name>
 		<function-class>com.semanticcms.file.taglib.Functions</function-class>
@@ -111,10 +123,12 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 	</function>
 	<function>
 		<description><![CDATA[
-			Determines if local file opening is allowed.
-			Uses reflection to avoid hard dependency on semanticcms-openfile-servlet.
-			This means OpenFile may be enabled for development, while the semanticcms-openfile-servlet
-			is not even included for production.
+			<p>
+				Determines if local file opening is allowed.
+				Uses reflection to avoid hard dependency on semanticcms-openfile-servlet.
+				This means OpenFile may be enabled for development, while the semanticcms-openfile-servlet
+				is not even included for production.
+			</p>
 		]]></description>
 		<name>isOpenFileAllowed</name>
 		<function-class>com.semanticcms.file.taglib.Functions</function-class>
