@@ -119,7 +119,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<name>hasFile</name>
 		<function-class>com.semanticcms.file.taglib.Functions</function-class>
 		<function-signature>boolean hasFile(com.semanticcms.core.model.Page,boolean)</function-signature>
-		<example><![CDATA[<pre>${file:hasFile(page, recursive)}</pre>]]></example>
+		<example><![CDATA[<code>${file:hasFile(page, recursive)}</code>]]></example>
 	</function>
 	<function>
 		<description><![CDATA[
@@ -133,6 +133,6 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<name>isOpenFileAllowed</name>
 		<function-class>com.semanticcms.file.taglib.Functions</function-class>
 		<function-signature>boolean isOpenFileAllowed()</function-signature>
-		<example><![CDATA[<pre>${file:isOpenFileAllowed()}</pre>]]></example>
+		<example><![CDATA[<code>${file:isOpenFileAllowed()}</code>]]></example>
 	</function>
 </taglib>
