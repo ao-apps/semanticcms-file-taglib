@@ -38,6 +38,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 	<properties>
 		<shortTitle>Taglib</shortTitle>
 		<description.html><![CDATA[Files nested within <a target="_top" href="https://semanticcms.com/">SemanticCMS</a> pages and elements in a JSP environment.]]></description.html>
+		<javadoc.taglibReference><![CDATA[<li><a target="_top" href="${project.url}semanticcms-file.tld/">Taglib Reference</a></li>]]></javadoc.taglibReference>
 	</properties>
 
 	<name>SemanticCMS File Taglib</name>

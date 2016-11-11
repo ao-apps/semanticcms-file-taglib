@@ -26,7 +26,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
 	version="2.1">
 	<description><![CDATA[
-		<p>@{project.description}</p>
+		<p>@{description.html}</p>
 	]]></description>
 	<display-name>@{project.name}</display-name>
 	<tlib-version>
@@ -37,20 +37,37 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 	<uri>@{project.url}</uri>
 	<tag>
 		<description><![CDATA[
-			<p>
+			<p class="semanticcms-tag-reference-summary">
 				Writes a link to a file.
+				Supports optional <a href="https://semanticcms.com/openfile/servlet/">desktop integration mode</a>.
 			</p>
 			<p>
-				If OpenFileTag is enabled, the connection is from localhost, and not exporting,
-				creates a file:/// URL to the file so that it may be opened locally by the browser.
-				Will open from the server-side when JavaScript enabled.
+				If <a href="https://semanticcms.com/openfile/servlet/apidocs/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+				is enabled, the connection is from localhost, and not exporting,
+				creates a <code>file:///…</code> URL to the file so that it may be opened locally by the browser.
+				Will additionally open from the server-side when JavaScript enabled.
 			</p>
 			<p>
 				If there is no body, will write the filename followed by the file size.
 			</p>
 			<p>
-				The onclick Ajax file opening is disabled when the documents are exporting,
-				as set by the "X-com-semanticcms-core-exporting: true" header.
+				<a href="https://semanticcms.com/openfile/servlet/apidocs/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+				must be explicitly enabled by setting the <code>com.semanticcms.openfile.servlet.OpenFile.enabled</code>
+				context parameter to <code>true</code>.
+			</p>
+			<p>
+				For security, <a href="https://semanticcms.com/openfile/servlet/apidocs/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+				may only be called from localhost.  However, be careful when behind a proxy,
+				as external proxied requests can appear to come from localhost.
+			</p>
+			<p>
+				<a href="https://semanticcms.com/openfile/servlet/apidocs/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a> may be enabled for development but disabled
+				in production by selectively including the <a href="https://semanticcms.com/openfile/servlet/">semanticcms-openfile-servlet</a>
+				dependency by profile.  By not including the dependency in production builds, the code is not simply disabled, but is not even included in production.
+			</p>
+			<p>
+				The onclick AJAX file opening is disabled when the documents are exporting,
+				as set by the <code>X-com-semanticcms-core-exporting: true</code> header.
 			</p>
 		]]></description>
 		<name>file</name>
@@ -99,8 +116,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<attribute>
 			<description><![CDATA[
 				<p>
-					When "true", the file is displayed on the page but not added to the list of files on the page.
-					Defaults to "false".
+					When <code>true</code>, the file is displayed on the page but not added to the list of files on the page.
+					Defaults to <code>false</code>.
 				</p>
 			]]></description>
 			<name>hidden</name>
@@ -123,11 +140,26 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 	</function>
 	<function>
 		<description><![CDATA[
-			<p>
+			<p class="semanticcms-tag-reference-summary">
 				Determines if local file opening is allowed.
-				Uses reflection to avoid hard dependency on semanticcms-openfile-servlet.
-				This means OpenFile may be enabled for development, while the semanticcms-openfile-servlet
-				is not even included for production.
+			</p>
+			<p>
+				Uses reflection to avoid hard dependency on <a href="https://semanticcms.com/openfile/servlet/">semanticcms-openfile-servlet</a>.
+			</p>
+			<p>
+				<a href="https://semanticcms.com/openfile/servlet/apidocs/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+				must be explicitly enabled by setting the <code>com.semanticcms.openfile.servlet.OpenFile.enabled</code>
+				context parameter to <code>true</code>.
+			</p>
+			<p>
+				For security, <a href="https://semanticcms.com/openfile/servlet/apidocs/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+				may only be called from localhost.  However, be careful when behind a proxy,
+				as external proxied requests can appear to come from localhost.
+			</p>
+			<p>
+				<a href="https://semanticcms.com/openfile/servlet/apidocs/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a> may be enabled for development but disabled
+				in production by selectively including the <a href="https://semanticcms.com/openfile/servlet/">semanticcms-openfile-servlet</a>
+				dependency by profile.  By not including the dependency in production builds, the code is not simply disabled, but is not even included in production.
 			</p>
 		]]></description>
 		<name>isOpenFileAllowed</name>
