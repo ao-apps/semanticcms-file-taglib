@@ -150,7 +150,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-file-servlet</artifactId>
-			<version>1.5.2</version>
+			<version>1.5.3-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
