@@ -145,12 +145,12 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-file-model</artifactId>
-			<version>1.4.3-SNAPSHOT</version>
+			<version>1.4.3</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-file-servlet</artifactId>
-			<version>1.5.3-SNAPSHOT</version>
+			<version>1.5.3</version>
 		</dependency>
 	</dependencies>
 </project>
