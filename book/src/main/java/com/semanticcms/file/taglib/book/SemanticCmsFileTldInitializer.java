@@ -43,6 +43,7 @@ public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 		super(
 			"File Taglib Reference",
 			"Taglib Reference",
+			"semanticcms.com",
 			"/file/taglib",
 			"/semanticcms-file.tld",
 			Maven.properties.getProperty("javac.link.javaApi.jdk16"),
