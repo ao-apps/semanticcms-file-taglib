@@ -1,6 +1,6 @@
 /*
  * semanticcms-file-taglib - Files nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+ * Copyright (C) 2013, 2014, 2015, 2016, 2017  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -49,6 +49,11 @@ import javax.servlet.jsp.PageContext;
 
 public class FileTag extends ElementTag<File> {
 
+	private ValueExpression domain;
+	public void setDomain(ValueExpression domain) {
+		this.domain = domain;
+	}
+
 	private ValueExpression book;
 	public void setBook(ValueExpression book) {
 		this.book = book;
@@ -82,6 +87,7 @@ public class FileTag extends ElementTag<File> {
 				PageRefResolver.getPageRef(
 					servletContext,
 					request,
+					resolveValue(domain, String.class, elContext),
 					resolveValue(book, String.class, elContext),
 					resolveValue(path, String.class, elContext)
 				)

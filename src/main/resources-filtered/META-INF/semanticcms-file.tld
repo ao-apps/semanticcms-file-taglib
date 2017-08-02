@@ -91,6 +91,19 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<attribute>
 			<description><![CDATA[
 				<p>
+					The domain of the book containing the file.
+					Defaults to the domain of the current JSP file.
+				</p>
+			]]></description>
+			<name>domain</name>
+			<required>false</required>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				<p>
 					The book containing the file.
 					Defaults to the book of the current JSP file.
 				</p>
