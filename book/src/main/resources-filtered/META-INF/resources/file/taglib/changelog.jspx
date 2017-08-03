@@ -37,7 +37,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T23:59:22-0500"
-		dateModified="2017-08-02T16:43:29-0500"
+		dateModified="2017-08-03T10:44:37-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-file-taglib:pom.version}" />
@@ -59,6 +59,32 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 							<li>
 								New optional attribute <code>domain</code> that defaults to the domain of the current page on
 								<core:link page="semanticcms-file.tld/tag-file" />.
+							</li>
+							<li>New <ao:a rel="nofollow" href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a> functions:
+								<ol type="a">
+									<li><core:link page="semanticcms-file.tld/function-getFileInDomain" /></li>
+									<li><core:link page="semanticcms-file.tld/function-getExeFileInDomain" /></li>
+								</ol>
+							</li>
+						</ol>
+					</li>
+					<li>Added <core:link book="/core/model" page="/index.jspx" /> resource support:
+						<ol>
+							<li>
+								<core:link page="semanticcms-file.tld/function-getFileInBook" />
+								function moved from <code>\${core:getFileInBook()}</code>.
+							</li>
+							<li>
+								<core:link page="semanticcms-file.tld/function-getFile" />
+								function moved from <code>\${core:getFile()}</code>.
+							</li>
+							<li>
+								<core:link page="semanticcms-file.tld/function-getExeFileInBook" />
+								function moved from <code>\${core:getExeFileInBook()}</code>.
+							</li>
+							<li>
+								<core:link page="semanticcms-file.tld/function-getExeFile" />
+								function moved from <code>\${core:getExeFile()}</code>.
 							</li>
 						</ol>
 					</li>

@@ -181,4 +181,220 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<function-signature>boolean isOpenFileAllowed()</function-signature>
 		<example><![CDATA[<code>${file:isOpenFileAllowed()}</code>]]></example>
 	</function>
+	<function>
+		<description><![CDATA[
+			<p class="semanticcms-tag-reference-summary">
+				Gets the local file for a domain, book, and book-relative path.
+			</p>
+			<p>
+				Parameter "domain": The domain of the book containing the file.
+			</p>
+			<p>
+				Parameter "book": The name of the book containing the file.
+			</p>
+			<p>
+				Parameter "path": The book-relative path to the file,
+				must begin with a slash <code>/</code>.
+			</p>
+			<p>
+				Parameter "require": When <code>true</code>, the file will be non-null and will exist;
+				a <a rel="nofollow" href="@{javac.link.javaApi}java/io/FileNotFoundException.html">FileNotFoundException</a>
+				will be thrown if the book is inaccessible, the resource store is unavailable, the resource
+				is not a local file, or the resource does not exist.  When <code>false</code>, the returned
+				file will be <code>null</code> when the book is inaccessible, the resource store is unavailable,
+				or the resource is not a local file, and the returned file might not exist.
+			</p>
+			<p>
+				When not requiring a <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html">File</a>, which is less portable,
+				use <a href="https://semanticcms.com/core/taglib/semanticcms-core.tld/function-getResourceInDomain">${core:getResourceInDomain()}</a>.
+			</p>
+			<p>
+				When requiring an <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a> file,
+				use <a href="@{project.url}semanticcms-file.tld/function-getExeFileInDomain">${file:getExeFileInDomain()}</a>.
+			</p>
+		]]></description>
+		<name>getFileInDomain</name>
+		<function-class>com.semanticcms.file.taglib.Functions</function-class>
+		<function-signature>java.io.File getFileInDomain(java.lang.String,java.lang.String,java.lang.String,boolean)</function-signature>
+		<example><![CDATA[<code>${file:getFileInDomain(domain, book, path, require)</code>]]></example>
+	</function>
+	<function>
+		<description><![CDATA[
+			<p class="semanticcms-tag-reference-summary">
+				Gets the local file for a book and book-relative path in the domain of the current JSP file.
+			</p>
+			<p>
+				Parameter "book": The name of the book containing the file.
+			</p>
+			<p>
+				Parameter "path": The book-relative path to the file,
+				must begin with a slash <code>/</code>.
+			</p>
+			<p>
+				Parameter "require": When <code>true</code>, the file will be non-null and will exist;
+				a <a rel="nofollow" href="@{javac.link.javaApi}java/io/FileNotFoundException.html">FileNotFoundException</a>
+				will be thrown if the book is inaccessible, the resource store is unavailable, the resource
+				is not a local file, or the resource does not exist.  When <code>false</code>, the returned
+				file will be <code>null</code> when the book is inaccessible, the resource store is unavailable,
+				or the resource is not a local file, and the returned file might not exist.
+			</p>
+			<p>
+				When not requiring a <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html">File</a>, which is less portable,
+				use <a href="https://semanticcms.com/core/taglib/semanticcms-core.tld/function-getResourceInBook">${core:getResourceInBook()}</a>.
+			</p>
+			<p>
+				When requiring an <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a> file,
+				use <a href="@{project.url}semanticcms-file.tld/function-getExeFileInBook">${file:getExeFileInBook()}</a>.
+			</p>
+		]]></description>
+		<name>getFileInBook</name>
+		<function-class>com.semanticcms.file.taglib.Functions</function-class>
+		<function-signature>java.io.File getFileInBook(java.lang.String,java.lang.String,boolean)</function-signature>
+		<example><![CDATA[<code>${file:getFileInBook(book, path, require)</code>]]></example>
+	</function>
+	<function>
+		<description><![CDATA[
+			<p class="semanticcms-tag-reference-summary">
+				Gets the local file for a page-relative path in the domain and book of the current JSP file.
+			</p>
+			<p>
+				Parameter "path": The page-relative path to the file;
+				book-relative when begins with a slash <code>/</code>.
+			</p>
+			<p>
+				Parameter "require": When <code>true</code>, the file will be non-null and will exist;
+				a <a rel="nofollow" href="@{javac.link.javaApi}java/io/FileNotFoundException.html">FileNotFoundException</a>
+				will be thrown if the book is inaccessible, the resource store is unavailable, the resource
+				is not a local file, or the resource does not exist.  When <code>false</code>, the returned
+				file will be <code>null</code> when the book is inaccessible, the resource store is unavailable,
+				or the resource is not a local file, and the returned file might not exist.
+			</p>
+			<p>
+				When not requiring a <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html">File</a>, which is less portable,
+				use <a href="https://semanticcms.com/core/taglib/semanticcms-core.tld/function-getResource">${core:getResource()}</a>.
+			</p>
+			<p>
+				When requiring an <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a> file,
+				use <a href="@{project.url}semanticcms-file.tld/function-getExeFile">${file:getExeFile()}</a>.
+			</p>
+		]]></description>
+		<name>getFile</name>
+		<function-class>com.semanticcms.file.taglib.Functions</function-class>
+		<function-signature>java.io.File getFile(java.lang.String,boolean)</function-signature>
+		<example><![CDATA[<code>${file:getFile(path, require)</code>]]></example>
+	</function>
+	<function>
+		<description><![CDATA[
+			<p class="semanticcms-tag-reference-summary">
+				Gets the local file for a domain, book, and book-relative path
+				while making sure it is set <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a>.
+			</p>
+			<p>
+				Parameter "domain": The domain of the book containing the file.
+			</p>
+			<p>
+				Parameter "book": The name of the book containing the file.
+			</p>
+			<p>
+				Parameter "path": The book-relative path to the file,
+				must begin with a slash <code>/</code>.
+			</p>
+			<p>
+				The file will be non-null and will exist;
+				a <a rel="nofollow" href="@{javac.link.javaApi}java/io/FileNotFoundException.html">FileNotFoundException</a>
+				will be thrown if the book is inaccessible, the resource store is unavailable, the resource
+				is not a local file, or the resource does not exist.
+			</p>
+			<p>
+				The file will be <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a>;
+				an <a rel="nofollow" href="@{javac.link.javaApi}java/io/IOException.html">IOException</a>
+				will be thrown if the file cannot be <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#setExecutable(boolean)">set executable</a>.
+			</p>
+			<p>
+				When not requiring a <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html">File</a>, which is less portable,
+				use <a href="https://semanticcms.com/core/taglib/semanticcms-core.tld/function-getResourceInDomain">${core:getResourceInDomain()}</a>.
+			</p>
+			<p>
+				When not requiring an <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a> file,
+				use <a href="@{project.url}semanticcms-file.tld/function-getFileInDomain">${file:getFileInDomain()}</a>.
+			</p>
+		]]></description>
+		<name>getExeFileInDomain</name>
+		<function-class>com.semanticcms.file.taglib.Functions</function-class>
+		<function-signature>java.io.File getExeFileInDomain(java.lang.String,java.lang.String,java.lang.String)</function-signature>
+		<example><![CDATA[<code>${file:getExeFileInDomain(domain, book, path)}</code>]]></example>
+	</function>
+	<function>
+		<description><![CDATA[
+			<p class="semanticcms-tag-reference-summary">
+				Gets the local file for a book and book-relative path in the domain of the current JSP file
+				while making sure it is set <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a>.
+			</p>
+			<p>
+				Parameter "book": The name of the book containing the file.
+			</p>
+			<p>
+				Parameter "path": The book-relative path to the file,
+				must begin with a slash <code>/</code>.
+			</p>
+			<p>
+				The file will be non-null and will exist;
+				a <a rel="nofollow" href="@{javac.link.javaApi}java/io/FileNotFoundException.html">FileNotFoundException</a>
+				will be thrown if the book is inaccessible, the resource store is unavailable, the resource
+				is not a local file, or the resource does not exist.
+			</p>
+			<p>
+				The file will be <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a>;
+				an <a rel="nofollow" href="@{javac.link.javaApi}java/io/IOException.html">IOException</a>
+				will be thrown if the file cannot be <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#setExecutable(boolean)">set executable</a>.
+			</p>
+			<p>
+				When not requiring a <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html">File</a>, which is less portable,
+				use <a href="https://semanticcms.com/core/taglib/semanticcms-core.tld/function-getResourceInBook">${core:getResourceInBook()}</a>.
+			</p>
+			<p>
+				When not requiring an <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a> file,
+				use <a href="@{project.url}semanticcms-file.tld/function-getFileInBook">${file:getFileInBook()}</a>.
+			</p>
+		]]></description>
+		<name>getExeFileInBook</name>
+		<function-class>com.semanticcms.file.taglib.Functions</function-class>
+		<function-signature>java.io.File getExeFileInBook(java.lang.String,java.lang.String)</function-signature>
+		<example><![CDATA[<code>${file:getExeFileInBook(book, path)}</code>]]></example>
+	</function>
+	<function>
+		<description><![CDATA[
+			<p class="semanticcms-tag-reference-summary">
+				Gets the local file for a page-relative path in the domain and book of the current JSP file
+				while making sure it is set <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a>.
+			</p>
+			<p>
+				Parameter "path": The page-relative path to the file;
+				book-relative when begins with a slash <code>/</code>.
+			</p>
+			<p>
+				The file will be non-null and will exist;
+				a <a rel="nofollow" href="@{javac.link.javaApi}java/io/FileNotFoundException.html">FileNotFoundException</a>
+				will be thrown if the book is inaccessible, the resource store is unavailable, the resource
+				is not a local file, or the resource does not exist.
+			</p>
+			<p>
+				The file will be <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a>;
+				an <a rel="nofollow" href="@{javac.link.javaApi}java/io/IOException.html">IOException</a>
+				will be thrown if the file cannot be <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#setExecutable(boolean)">set executable</a>.
+			</p>
+			<p>
+				When not requiring a <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html">File</a>, which is less portable,
+				use <a href="https://semanticcms.com/core/taglib/semanticcms-core.tld/function-getResource">${core:getResource()}</a>.
+			</p>
+			<p>
+				When not requiring an <a rel="nofollow" href="@{javac.link.javaApi}java/io/File.html#canExecute()">executable</a> file,
+				use <a href="@{project.url}semanticcms-file.tld/function-getFile">${file:getFile()}</a>.
+			</p>
+		]]></description>
+		<name>getExeFile</name>
+		<function-class>com.semanticcms.file.taglib.Functions</function-class>
+		<function-signature>java.io.File getExeFile(java.lang.String)</function-signature>
+		<example><![CDATA[<code>${file:getExeFile(path)}</code>]]></example>
+	</function>
 </taglib>

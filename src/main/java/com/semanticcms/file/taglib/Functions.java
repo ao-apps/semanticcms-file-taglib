@@ -1,6 +1,6 @@
 /*
  * semanticcms-file-taglib - Files nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+ * Copyright (C) 2013, 2014, 2015, 2016, 2017  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -26,7 +26,10 @@ import static com.aoindustries.servlet.filter.FunctionContext.getRequest;
 import static com.aoindustries.servlet.filter.FunctionContext.getResponse;
 import static com.aoindustries.servlet.filter.FunctionContext.getServletContext;
 import com.semanticcms.core.model.Page;
+import com.semanticcms.core.model.Resource;
 import com.semanticcms.file.servlet.FileUtils;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.servlet.ServletException;
 
@@ -47,6 +50,46 @@ final public class Functions {
 			getServletContext(),
 			getRequest()
 		);
+	}
+
+	public static File getFileInDomain(String domain, String book, String path, boolean require) throws ServletException, IOException {
+		Resource resource = com.semanticcms.core.taglib.Functions.getResourceInDomain(domain, book, path, require);
+		if(resource == null) {
+			assert !require;
+			return null;
+		}
+		File file = resource.getFile();
+		if(require && file == null) {
+			throw new FileNotFoundException("File is not local: " + resource.getResourceRef());
+		}
+		return file;
+	}
+
+	public static File getFileInBook(String book, String path, boolean require) throws ServletException, IOException {
+		return getFileInDomain(null, book, path, require);
+	}
+
+	public static File getFile(String path, boolean require) throws ServletException, IOException {
+		return getFileInDomain(null, null, path, require);
+	}
+
+	public static File getExeFileInDomain(String domain, String book, String path) throws ServletException, IOException {
+		File file = getFileInDomain(domain, book, path, true);
+		if(
+			!file.canExecute()
+			&& !file.setExecutable(true)
+		) {
+			throw new IOException("Unable to set executable flag: " + file.getPath());
+		}
+		return file;
+	}
+
+	public static File getExeFileInBook(String book, String path) throws ServletException, IOException {
+		return getExeFileInDomain(null, book, path);
+	}
+
+	public static File getExeFile(String path) throws ServletException, IOException {
+		return getExeFileInDomain(null, null, path);
 	}
 
 	/**
