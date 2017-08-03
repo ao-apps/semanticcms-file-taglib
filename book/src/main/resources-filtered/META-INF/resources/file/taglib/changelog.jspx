@@ -37,7 +37,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T23:59:22-0500"
-		dateModified="2017-08-03T10:44:37-0500"
+		dateModified="2017-08-03T11:35:29-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-file-taglib:pom.version}" />
@@ -54,7 +54,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 				scmUrl="@{documented.scm.url}"
 			>
 				<ul>
-					<li>Added <core:link book="/" page="/index.jspx" /> domain support:
+					<li>Added <core:link book="/core/model" page="/index.jspx" /> domain support:
 						<ol>
 							<li>
 								New optional attribute <code>domain</code> that defaults to the domain of the current page on
