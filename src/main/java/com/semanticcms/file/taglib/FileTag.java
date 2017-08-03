@@ -30,8 +30,10 @@ import com.aoindustries.servlet.filter.TempFileContext;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.aoindustries.taglib.AutoEncodingBufferedTag;
 import com.semanticcms.core.model.ElementContext;
+import com.semanticcms.core.model.ResourceRef;
 import com.semanticcms.core.servlet.CaptureLevel;
-import com.semanticcms.core.servlet.PageRefResolver;
+import com.semanticcms.core.servlet.ResourceRefResolver;
+import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.taglib.ElementTag;
 import com.semanticcms.file.model.File;
 import com.semanticcms.file.servlet.impl.FileImpl;
@@ -83,14 +85,16 @@ public class FileTag extends ElementTag<File> {
 			final ServletContext servletContext = pageContext.getServletContext();
 			final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
 			// Resolve file now to catch problems earlier even in meta mode
-			file.setPageRef(
-				PageRefResolver.getPageRef(
-					servletContext,
-					request,
-					resolveValue(domain, String.class, elContext),
-					resolveValue(book, String.class, elContext),
-					resolveValue(path, String.class, elContext)
-				)
+			ResourceRef resourceRef = ResourceRefResolver.getResourceRef(
+				servletContext,
+				request,
+				resolveValue(domain, String.class, elContext),
+				resolveValue(book, String.class, elContext),
+				resolveValue(path, String.class, elContext)
+			);
+			file.setResource(
+				SemanticCMS.getInstance(servletContext).getBook(resourceRef.getBookRef()).getResourceStore(),
+				resourceRef
 			);
 			file.setHidden(hidden);
 			super.doBody(file, captureLevel);
