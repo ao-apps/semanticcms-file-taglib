@@ -26,7 +26,7 @@ import static com.aoindustries.servlet.filter.FunctionContext.getRequest;
 import static com.aoindustries.servlet.filter.FunctionContext.getResponse;
 import static com.aoindustries.servlet.filter.FunctionContext.getServletContext;
 import com.semanticcms.core.model.Page;
-import com.semanticcms.core.model.Resource;
+import com.semanticcms.core.resources.Resource;
 import com.semanticcms.file.servlet.FileUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
