@@ -60,7 +60,7 @@ final public class Functions {
 		}
 		File file = resource.getFile();
 		if(require && file == null) {
-			throw new FileNotFoundException("File is not local: " + resource.getResourceRef());
+			throw new FileNotFoundException("Resource is not a local file: " + resource);
 		}
 		return file;
 	}
