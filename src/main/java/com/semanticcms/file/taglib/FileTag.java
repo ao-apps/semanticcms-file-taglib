@@ -24,8 +24,11 @@ package com.semanticcms.file.taglib;
 
 import com.aoindustries.io.buffer.BufferResult;
 import com.aoindustries.io.buffer.BufferWriter;
+import com.aoindustries.net.Path;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.aoindustries.taglib.AutoEncodingBufferedTag;
+import com.aoindustries.util.StringUtility;
+import com.aoindustries.validation.ValidationException;
 import com.semanticcms.core.model.ElementContext;
 import com.semanticcms.core.model.ResourceRef;
 import com.semanticcms.core.pages.CaptureLevel;
@@ -86,7 +89,11 @@ public class FileTag extends ElementTag<File> {
 				servletContext,
 				request,
 				resolveValue(domain, String.class, elContext),
-				resolveValue(book, String.class, elContext),
+				Path.valueOf(
+					StringUtility.nullIfEmpty(
+						resolveValue(book, String.class, elContext)
+					)
+				),
 				resolveValue(path, String.class, elContext)
 			);
 			file.setResource(
@@ -114,6 +121,8 @@ public class FileTag extends ElementTag<File> {
 			}
 			writeMe = capturedOut==null ? null : capturedOut.getResult();
 		} catch(ServletException e) {
+			throw new JspTagException(e);
+		} catch(ValidationException e) {
 			throw new JspTagException(e);
 		}
 	}
