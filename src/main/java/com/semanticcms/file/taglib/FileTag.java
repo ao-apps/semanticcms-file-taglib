@@ -24,6 +24,7 @@ package com.semanticcms.file.taglib;
 
 import com.aoindustries.io.buffer.BufferResult;
 import com.aoindustries.io.buffer.BufferWriter;
+import com.aoindustries.net.DomainName;
 import com.aoindustries.net.Path;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.aoindustries.taglib.AutoEncodingBufferedTag;
@@ -88,7 +89,11 @@ public class FileTag extends ElementTag<File> {
 			ResourceRef resourceRef = ResourceRefResolver.getResourceRef(
 				servletContext,
 				request,
-				resolveValue(domain, String.class, elContext),
+				DomainName.valueOf(
+					StringUtility.nullIfEmpty(
+						resolveValue(domain, String.class, elContext)
+					)
+				),
 				Path.valueOf(
 					StringUtility.nullIfEmpty(
 						resolveValue(book, String.class, elContext)

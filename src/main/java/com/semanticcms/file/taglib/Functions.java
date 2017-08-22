@@ -25,6 +25,7 @@ package com.semanticcms.file.taglib;
 import static com.aoindustries.servlet.filter.FunctionContext.getRequest;
 import static com.aoindustries.servlet.filter.FunctionContext.getResponse;
 import static com.aoindustries.servlet.filter.FunctionContext.getServletContext;
+import com.aoindustries.validation.ValidationException;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.resources.Resource;
 import com.semanticcms.file.servlet.FileUtils;
@@ -52,7 +53,7 @@ final public class Functions {
 		);
 	}
 
-	public static File getFileInDomain(String domain, String book, String path, boolean require) throws ServletException, IOException {
+	public static File getFileInDomain(String domain, String book, String path, boolean require) throws ServletException, IOException, ValidationException {
 		Resource resource = com.semanticcms.core.taglib.Functions.getResourceInDomain(domain, book, path, require);
 		if(resource == null) {
 			assert !require;
@@ -65,15 +66,19 @@ final public class Functions {
 		return file;
 	}
 
-	public static File getFileInBook(String book, String path, boolean require) throws ServletException, IOException {
+	public static File getFileInBook(String book, String path, boolean require) throws ServletException, IOException, ValidationException {
 		return getFileInDomain(null, book, path, require);
 	}
 
 	public static File getFile(String path, boolean require) throws ServletException, IOException {
-		return getFileInDomain(null, null, path, require);
+		try {
+			return getFileInDomain(null, null, path, require);
+		} catch(ValidationException e) {
+			throw new ServletException(e);
+		}
 	}
 
-	public static File getExeFileInDomain(String domain, String book, String path) throws ServletException, IOException {
+	public static File getExeFileInDomain(String domain, String book, String path) throws ServletException, IOException, ValidationException {
 		File file = getFileInDomain(domain, book, path, true);
 		if(
 			!file.canExecute()
@@ -84,12 +89,16 @@ final public class Functions {
 		return file;
 	}
 
-	public static File getExeFileInBook(String book, String path) throws ServletException, IOException {
+	public static File getExeFileInBook(String book, String path) throws ServletException, IOException, ValidationException {
 		return getExeFileInDomain(null, book, path);
 	}
 
 	public static File getExeFile(String path) throws ServletException, IOException {
-		return getExeFileInDomain(null, null, path);
+		try {
+			return getExeFileInDomain(null, null, path);
+		} catch(ValidationException e) {
+			throw new ServletException(e);
+		}
 	}
 
 	/**
