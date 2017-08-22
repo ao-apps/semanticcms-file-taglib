@@ -28,7 +28,7 @@ import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.aoindustries.taglib.AutoEncodingBufferedTag;
 import com.semanticcms.core.model.ElementContext;
 import com.semanticcms.core.model.ResourceRef;
-import com.semanticcms.core.servlet.CaptureLevel;
+import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.servlet.ResourceRefResolver;
 import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.taglib.ElementTag;
@@ -90,7 +90,7 @@ public class FileTag extends ElementTag<File> {
 				resolveValue(path, String.class, elContext)
 			);
 			file.setResource(
-				SemanticCMS.getInstance(servletContext).getBook(resourceRef.getBookRef()).getResourceStore(),
+				SemanticCMS.getInstance(servletContext).getBook(resourceRef.getBookRef()).getResources(),
 				resourceRef
 			);
 			file.setHidden(hidden);
