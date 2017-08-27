@@ -30,14 +30,14 @@ import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.aoindustries.taglib.AutoEncodingBufferedTag;
 import com.aoindustries.util.StringUtility;
 import com.aoindustries.validation.ValidationException;
+import com.semanticcms.core.controller.ResourceRefResolver;
+import com.semanticcms.core.controller.SemanticCMS;
 import com.semanticcms.core.model.ElementContext;
 import com.semanticcms.core.model.ResourceRef;
 import com.semanticcms.core.pages.CaptureLevel;
-import com.semanticcms.core.servlet.ResourceRefResolver;
-import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.taglib.ElementTag;
 import com.semanticcms.file.model.File;
-import com.semanticcms.file.servlet.impl.FileImpl;
+import com.semanticcms.file.renderer.html.FileHtmlRenderer;
 import java.io.IOException;
 import java.io.Writer;
 import javax.el.ELContext;
@@ -114,7 +114,7 @@ public class FileTag extends ElementTag<File> {
 				capturedOut = null;
 			}
 			try {
-				FileImpl.writeFileImpl(
+				FileHtmlRenderer.writeFileImpl(
 					servletContext,
 					request,
 					(HttpServletResponse)pageContext.getResponse(),

@@ -28,7 +28,7 @@ import static com.aoindustries.servlet.filter.FunctionContext.getServletContext;
 import com.aoindustries.validation.ValidationException;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.resources.Resource;
-import com.semanticcms.file.servlet.FileUtils;
+import com.semanticcms.file.renderer.html.FileUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
