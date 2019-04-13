@@ -1,6 +1,6 @@
 /*
  * semanticcms-file-taglib - Files nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2016, 2017  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2019  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -39,9 +39,9 @@ public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<String,String>();
 	static {
 		// Self
-		additionalApiLinks.put("com.semanticcms.file.taglib.", Maven.properties.getProperty("documented.url") + "apidocs/");
+		additionalApiLinks.put("com.semanticcms.file.taglib.", Maven.properties.getProperty("documented.url") + "apidocs");
 		// Dependencies
-		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs/");
+		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs");
 	}
 
 	public SemanticCmsFileTldInitializer() throws ValidationException {
