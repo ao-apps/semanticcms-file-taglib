@@ -31,9 +31,6 @@ import com.semanticcms.tagreference.TagReferenceInitializer;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * @author  AO Industries, Inc.
- */
 public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 
 	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<String,String>();
@@ -55,7 +52,7 @@ public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 				),
 				Path.valueOf("/semanticcms-file.tld")
 			),
-			Maven.properties.getProperty("javac.link.javaApi.jdk16"),
+			Maven.properties.getProperty("javac.link.javaApi.jdk6"),
 			Maven.properties.getProperty("javac.link.javaeeApi.6"),
 			additionalApiLinks
 		);
