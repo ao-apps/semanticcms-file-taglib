@@ -31,9 +31,9 @@ public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<String,String>();
 	static {
 		// Self
-		additionalApiLinks.put("com.semanticcms.file.taglib.", Maven.properties.getProperty("documented.url") + "apidocs");
+		additionalApiLinks.put("com.semanticcms.file.taglib.", Maven.properties.getProperty("documented.url") + "apidocs/");
 		// Dependencies
-		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs");
+		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs/");
 	}
 
 	public SemanticCmsFileTldInitializer() {
@@ -42,7 +42,7 @@ public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 			"Taglib Reference",
 			"/file/taglib",
 			"/semanticcms-file.tld",
-			Maven.properties.getProperty("javac.link.javaApi.jdk6"),
+			Maven.properties.getProperty("javac.link.javaApi.jdk7"),
 			Maven.properties.getProperty("javac.link.javaeeApi.6"),
 			additionalApiLinks
 		);
