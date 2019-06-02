@@ -53,7 +53,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{documented.scm.url}"
 			/>
-		</c:if>
+\		</c:if>
 
 		<changelog:release
 			projectName="@{documented.name}"
