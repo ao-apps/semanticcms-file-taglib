@@ -72,7 +72,6 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 								<link>https://aoindustries.com/ao-net-types/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-filter/apidocs/</link>
 								<link>https://aoindustries.com/ao-taglib/apidocs/</link>
-								<link>https://aoindustries.com/aocode-public/apidocs/</link>
 								<link>https://semanticcms.com/core/controller/apidocs/</link>
 								<link>https://semanticcms.com/core/model/apidocs/</link>
 								<link>https://semanticcms.com/core/pages/apidocs/</link>
@@ -101,19 +100,16 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 				<groupId>com.aoindustries</groupId><artifactId>ao-io-buffer</artifactId><version>3.0.1-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>3.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>3.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId><version>1.1.2-POST-SNAPSHOT</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId><version>1.2.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-filter</artifactId><version>1.7.0-SNAPSHOT</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-filter</artifactId><version>2.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.1.0-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>3.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>4.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-controller</artifactId><version>2.0.0-SNAPSHOT</version>
@@ -168,9 +164,6 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-controller</artifactId>
