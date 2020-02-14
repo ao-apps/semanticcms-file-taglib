@@ -1,6 +1,6 @@
 /*
  * semanticcms-file-taglib - Files nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019  AO Industries, Inc.
+ * Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,6 +22,7 @@
  */
 package com.semanticcms.file.taglib;
 
+import com.aoindustries.html.servlet.HtmlEE;
 import com.aoindustries.io.buffer.BufferResult;
 import com.aoindustries.io.buffer.BufferWriter;
 import com.aoindustries.net.DomainName;
@@ -118,7 +119,7 @@ public class FileTag extends ElementTag<File> {
 					servletContext,
 					request,
 					(HttpServletResponse)pageContext.getResponse(),
-					capturedOut,
+					(capturedOut == null) ? null : HtmlEE.get(servletContext, request, capturedOut),
 					file
 				);
 			} finally {
