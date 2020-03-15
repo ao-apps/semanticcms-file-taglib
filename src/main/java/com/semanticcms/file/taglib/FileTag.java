@@ -29,7 +29,7 @@ import com.aoindustries.net.DomainName;
 import com.aoindustries.net.Path;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.aoindustries.taglib.AutoEncodingBufferedTag;
-import com.aoindustries.util.StringUtility;
+import com.aoindustries.lang.Strings;
 import com.aoindustries.validation.ValidationException;
 import com.semanticcms.core.controller.ResourceRefResolver;
 import com.semanticcms.core.controller.SemanticCMS;
@@ -91,12 +91,12 @@ public class FileTag extends ElementTag<File> {
 				servletContext,
 				request,
 				DomainName.valueOf(
-					StringUtility.nullIfEmpty(
+					Strings.nullIfEmpty(
 						resolveValue(domain, String.class, elContext)
 					)
 				),
 				Path.valueOf(
-					StringUtility.nullIfEmpty(
+					Strings.nullIfEmpty(
 						resolveValue(book, String.class, elContext)
 					)
 				),
