@@ -31,7 +31,7 @@ Files nested within [SemanticCMS](https://github.com/aoindustries/semanticcms) p
 * [Changelog](https://semanticcms.com/file/taglib/changelog)
 * [Taglib Reference](https://semanticcms.com/file/taglib/semanticcms-file.tld/)
 * [API Docs](https://semanticcms.com/file/taglib/apidocs/)
-* [Maven Central Repository](https://search.maven.org/#search%7Cgav%7C1%7Cg:%22com.semanticcms%22%20AND%20a:%22semanticcms-file-taglib%22)
+* [Maven Central Repository](https://search.maven.org/artifact/com.semanticcms/semanticcms-file-taglib)
 * [GitHub](https://github.com/aoindustries/semanticcms-file-taglib)
 
 ## Contact Us
