@@ -93,11 +93,12 @@ public class FileTag extends ElementTag<File> {
 				capturedOut = null;
 			}
 			try {
+				HttpServletResponse response = (HttpServletResponse)pageContext.getResponse();
 				FileImpl.writeFileImpl(
 					servletContext,
 					request,
-					(HttpServletResponse)pageContext.getResponse(),
-					(capturedOut == null) ? null : HtmlEE.get(servletContext, request, capturedOut),
+					response,
+					(capturedOut == null) ? null : HtmlEE.get(servletContext, request, response, capturedOut),
 					file
 				);
 			} finally {
