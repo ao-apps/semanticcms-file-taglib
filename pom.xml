@@ -54,6 +54,11 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		<tag>HEAD</tag>
 	</scm>
 
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/aoindustries/semanticcms-file-taglib/issues</url>
+	</issueManagement>
+
 	<profiles>
 		<profile>
 			<id>release</id>
