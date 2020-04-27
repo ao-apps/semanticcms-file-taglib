@@ -78,13 +78,13 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 								<link>https://aoindustries.com/ao-net-types/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-filter/apidocs/</link>
 								<link>https://aoindustries.com/ao-taglib/apidocs/</link>
-								<link>https://semanticcms.com/core/controller/apidocs/</link>
+								<!-- TODO: Once published: <link>https://semanticcms.com/core/controller/apidocs/</link> -->
 								<link>https://semanticcms.com/core/model/apidocs/</link>
-								<link>https://semanticcms.com/core/pages/apidocs/</link>
-								<link>https://semanticcms.com/core/resources/apidocs/</link>
+								<!-- TODO: Once published: <link>https://semanticcms.com/core/pages/apidocs/</link> -->
+								<!-- TODO: Once published: <link>https://semanticcms.com/core/resources/apidocs/</link> -->
 								<link>https://semanticcms.com/core/taglib/apidocs/</link>
 								<link>https://semanticcms.com/file/model/apidocs/</link>
-								<link>https://semanticcms.com/file/renderer/html/apidocs/</link>
+								<!-- TODO: Once published: <link>https://semanticcms.com/file/renderer/html/apidocs/</link> -->
 							</links>
 						</configuration>
 					</plugin>
