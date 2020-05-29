@@ -1,6 +1,6 @@
 /*
  * semanticcms-file-taglib - Files nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2016, 2017, 2019  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2019, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -23,18 +23,9 @@
 package com.semanticcms.file.taglib.book;
 
 import com.semanticcms.tagreference.TagReferenceInitializer;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Collections;
 
 public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
-
-	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<>();
-	static {
-		// Self
-		additionalApiLinks.put("com.semanticcms.file.taglib.", Maven.properties.getProperty("project.url") + "apidocs/");
-		// Dependencies
-		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs/");
-	}
 
 	public SemanticCmsFileTldInitializer() {
 		super(
@@ -44,7 +35,10 @@ public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 			"/semanticcms-file.tld",
 			Maven.properties.getProperty("documented.javadoc.link.javase"),
 			Maven.properties.getProperty("documented.javadoc.link.javaee"),
-			additionalApiLinks
+			// Self
+			Collections.singletonMap("com.semanticcms.file.taglib", Maven.properties.getProperty("project.url") + "apidocs/"),
+			// Dependencies
+			Collections.singletonMap("com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/")
 		);
 	}
 }
