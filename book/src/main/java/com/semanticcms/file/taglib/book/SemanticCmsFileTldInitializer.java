@@ -27,9 +27,10 @@ import java.util.Collections;
 
 public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 
+	@SuppressWarnings("unchecked")
 	public SemanticCmsFileTldInitializer() {
 		super(
-			"File Taglib Reference",
+			Maven.properties.getProperty("project.name") + " Reference",
 			"Taglib Reference",
 			"/file/taglib",
 			"/semanticcms-file.tld",
