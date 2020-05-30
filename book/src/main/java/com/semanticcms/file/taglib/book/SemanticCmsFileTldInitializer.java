@@ -34,6 +34,7 @@ public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 			"Taglib Reference",
 			"/file/taglib",
 			"/semanticcms-file.tld",
+			true,
 			Maven.properties.getProperty("documented.javadoc.link.javase"),
 			Maven.properties.getProperty("documented.javadoc.link.javaee"),
 			// Self
