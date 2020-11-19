@@ -22,6 +22,7 @@
  */
 package com.semanticcms.file.taglib;
 
+import com.aoindustries.encoding.taglib.EncodingBufferedSimpleTag;
 import com.aoindustries.html.servlet.HtmlEE;
 import com.aoindustries.io.buffer.BufferResult;
 import com.aoindustries.io.buffer.BufferWriter;
@@ -29,7 +30,6 @@ import com.aoindustries.lang.Strings;
 import com.aoindustries.net.DomainName;
 import com.aoindustries.net.Path;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
-import com.aoindustries.taglib.AutoEncodingBufferedTag;
 import com.aoindustries.validation.ValidationException;
 import com.semanticcms.core.controller.ResourceRefResolver;
 import com.semanticcms.core.controller.SemanticCMS;
@@ -110,7 +110,7 @@ public class FileTag extends ElementTag<File> {
 			super.doBody(file, captureLevel);
 			BufferWriter capturedOut;
 			if(captureLevel == CaptureLevel.BODY) {
-				capturedOut = AutoEncodingBufferedTag.newBufferWriter(request);
+				capturedOut = EncodingBufferedSimpleTag.newBufferWriter(request);
 			} else {
 				capturedOut = null;
 			}
