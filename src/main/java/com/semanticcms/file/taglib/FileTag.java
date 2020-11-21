@@ -22,7 +22,7 @@
  */
 package com.semanticcms.file.taglib;
 
-import com.aoindustries.encoding.taglib.EncodingBufferedSimpleTag;
+import com.aoindustries.encoding.taglib.EncodingBufferedTag;
 import com.aoindustries.html.servlet.HtmlEE;
 import com.aoindustries.io.buffer.BufferResult;
 import com.aoindustries.io.buffer.BufferWriter;
@@ -110,7 +110,7 @@ public class FileTag extends ElementTag<File> {
 			super.doBody(file, captureLevel);
 			BufferWriter capturedOut;
 			if(captureLevel == CaptureLevel.BODY) {
-				capturedOut = EncodingBufferedSimpleTag.newBufferWriter(request);
+				capturedOut = EncodingBufferedTag.newBufferWriter(request);
 			} else {
 				capturedOut = null;
 			}
