@@ -37,7 +37,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T23:59:22-0500"
-		dateModified="2020-11-18T23:47:21-06:00"
+		dateModified="2020-11-23T03:04:27-06:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-file-taglib:pom.version}" />
@@ -55,6 +55,10 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 			>
 				<ul>
 					<li>Updated dependencies.</li>
+					<li>
+						Allowing all attributes to have runtime expressions with <code><![CDATA[&lt;rtexprvalue&gt;true&lt;/rtexprvalue&gt;]]></code>.
+						There is no compelling reason to disable the runtime expressions, and disabling them can hinder developer options.
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
