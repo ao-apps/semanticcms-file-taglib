@@ -37,7 +37,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T23:59:22-0500"
-		dateModified="2020-11-23T03:04:27-06:00"
+		dateModified="2020-11-27T21:44:33-06:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-file-taglib:pom.version}" />
@@ -88,14 +88,26 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 							</li>
 						</ol>
 					</li>
-					<li>Updated dependencies.</li>
-					<li>
-						Allowing all attributes to have runtime expressions with <code><![CDATA[&lt;rtexprvalue&gt;true&lt;/rtexprvalue&gt;]]></code>.
-						There is no compelling reason to disable the runtime expressions, and disabling them can hinder developer options.
-					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.9.0"
+			datePublished="2020-11-27T21:44:33-06:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Updated dependencies.</li>
+				<li>
+					Allowing all attributes to have runtime expressions with <code><![CDATA[&lt;rtexprvalue&gt;true&lt;/rtexprvalue&gt;]]></code>.
+					There is no compelling reason to disable the runtime expressions, and disabling them can hinder developer options.
+				</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
