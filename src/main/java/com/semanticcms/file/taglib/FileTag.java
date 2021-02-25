@@ -98,7 +98,13 @@ public class FileTag extends ElementTag<File> {
 					servletContext,
 					request,
 					response,
-					(capturedOut == null) ? null : DocumentEE.get(servletContext, request, response, capturedOut),
+					(capturedOut == null) ? null : DocumentEE.get(
+						servletContext,
+						request,
+						response,
+						capturedOut,
+						false // Do not add extra indentation to JSP
+					),
 					file
 				);
 			} finally {
