@@ -103,7 +103,8 @@ public class FileTag extends ElementTag<File> {
 						request,
 						response,
 						capturedOut,
-						false // Do not add extra indentation to JSP
+						false, // Do not add extra newlines to JSP
+						false  // Do not add extra indentation to JSP
 					),
 					file
 				);
