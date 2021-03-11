@@ -119,7 +119,7 @@ public class FileTag extends ElementTag<File> {
 				FileHtmlRenderer.writeFileImpl(servletContext,
 					request,
 					response,
-					(capturedOut == null) ? null : DocumentEE.get(
+					(capturedOut == null) ? null : new DocumentEE(
 						servletContext,
 						request,
 						response,
