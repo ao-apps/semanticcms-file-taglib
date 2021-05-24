@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-file-taglib - Files nested within SemanticCMS pages and elements in a JSP environment.
-Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -25,8 +25,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
 	version="2.1">
-	<!-- datePublished="2016-08-17T15:17:17-0500" -->
-	<!-- dateModified="2016-11-11T14:18:26-0600" -->
+	<!-- datePublished="2016-08-17T15:17:17-05:00" -->
+	<!-- dateModified="2016-11-11T14:18:26-06:00" -->
 	<description><![CDATA[
 		<p>@{description.html}</p>
 	]]></description>
@@ -38,7 +38,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 	<short-name>file</short-name>
 	<uri>@{project.url}</uri>
 	<tag>
-		<!-- datePublished="2016-08-17T15:17:17-0500" -->
+		<!-- datePublished="2016-08-17T15:17:17-05:00" -->
 		<!-- dateModified="2020-11-23T03:04:27-06:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
@@ -145,8 +145,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<dynamic-attributes>true</dynamic-attributes>
 	</tag>
 	<function>
-		<!-- datePublished="2016-08-17T16:02:29-0500" -->
-		<!-- dateModified="2016-11-08T02:37:18-0600" -->
+		<!-- datePublished="2016-08-17T16:02:29-05:00" -->
+		<!-- dateModified="2016-11-08T02:37:18-06:00" -->
 		<description><![CDATA[
 			<p>
 				Checks if the given page, or optionally any of its child pages, has at least
@@ -159,8 +159,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<example><![CDATA[<code>${file:hasFile(page, recursive)}</code>]]></example>
 	</function>
 	<function>
-		<!-- datePublished="2016-10-16T19:01:01-0500" -->
-		<!-- dateModified="2016-11-11T14:18:26-0600" -->
+		<!-- datePublished="2016-10-16T19:01:01-05:00" -->
+		<!-- dateModified="2016-11-11T14:18:26-06:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Determines if local file opening is allowed.
@@ -190,8 +190,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<example><![CDATA[<code>${file:isOpenFileAllowed()}</code>]]></example>
 	</function>
 	<function>
-		<!-- datePublished="2017-08-03T11:04:44-0500" -->
-		<!-- dateModified="2019-04-15T19:32:42-0500" -->
+		<!-- datePublished="2017-08-03T11:04:44-05:00" -->
+		<!-- dateModified="2019-04-15T19:32:42-05:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Gets the local file for a domain, book, and book-relative path.
@@ -229,8 +229,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<example><![CDATA[<code>${file:getFileInDomain(domain, book, path, require)</code>]]></example>
 	</function>
 	<function>
-		<!-- datePublished="2016-08-07T23:48:25-0500" -->
-		<!-- dateModified="2019-04-15T19:32:42-0500" -->
+		<!-- datePublished="2016-08-07T23:48:25-05:00" -->
+		<!-- dateModified="2019-04-15T19:32:42-05:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Gets the local file for a book and book-relative path in the domain of the current JSP file.
@@ -265,8 +265,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<example><![CDATA[<code>${file:getFileInBook(book, path, require)</code>]]></example>
 	</function>
 	<function>
-		<!-- datePublished="2016-08-07T23:48:25-0500" -->
-		<!-- dateModified="2019-04-15T19:32:42-0500" -->
+		<!-- datePublished="2016-08-07T23:48:25-05:00" -->
+		<!-- dateModified="2019-04-15T19:32:42-05:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Gets the local file for a page-relative path in the domain and book of the current JSP file.
@@ -298,8 +298,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<example><![CDATA[<code>${file:getFile(path, require)</code>]]></example>
 	</function>
 	<function>
-		<!-- datePublished="2017-08-03T11:04:44-0500" -->
-		<!-- dateModified="2019-04-15T19:32:42-0500" -->
+		<!-- datePublished="2017-08-03T11:04:44-05:00" -->
+		<!-- dateModified="2019-04-15T19:32:42-05:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Gets the local file for a domain, book, and book-relative path
@@ -341,8 +341,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<example><![CDATA[<code>${file:getExeFileInDomain(domain, book, path)}</code>]]></example>
 	</function>
 	<function>
-		<!-- datePublished="2016-08-07T23:48:25-0500" -->
-		<!-- dateModified="2019-04-15T19:32:42-0500" -->
+		<!-- datePublished="2016-08-07T23:48:25-05:00" -->
+		<!-- dateModified="2019-04-15T19:32:42-05:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Gets the local file for a book and book-relative path in the domain of the current JSP file
@@ -381,8 +381,8 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses/>.
 		<example><![CDATA[<code>${file:getExeFileInBook(book, path)}</code>]]></example>
 	</function>
 	<function>
-		<!-- datePublished="2016-08-07T23:48:25-0500" -->
-		<!-- dateModified="2019-04-15T19:32:42-0500" -->
+		<!-- datePublished="2016-08-07T23:48:25-05:00" -->
+		<!-- dateModified="2019-04-15T19:32:42-05:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Gets the local file for a page-relative path in the domain and book of the current JSP file
