@@ -1,6 +1,6 @@
 /*
  * semanticcms-file-taglib - Files nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2017  AO Industries, Inc.
+ * Copyright (C) 2017, 2021  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,7 +22,7 @@
  */
 package com.semanticcms.file.taglib.book;
 
-import com.aoindustries.util.PropertiesUtils;
+import com.aoapps.lang.util.PropertiesUtils;
 import java.io.IOException;
 import java.util.Properties;
 
