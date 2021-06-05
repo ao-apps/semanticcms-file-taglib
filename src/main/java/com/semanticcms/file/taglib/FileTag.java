@@ -22,11 +22,11 @@
  */
 package com.semanticcms.file.taglib;
 
-import com.aoindustries.encoding.taglib.EncodingBufferedTag;
-import com.aoindustries.html.servlet.DocumentEE;
-import com.aoindustries.io.buffer.BufferResult;
-import com.aoindustries.io.buffer.BufferWriter;
-import static com.aoindustries.taglib.AttributeUtils.resolveValue;
+import com.aoapps.encoding.taglib.EncodingBufferedTag;
+import com.aoapps.html.servlet.DocumentEE;
+import com.aoapps.io.buffer.BufferResult;
+import com.aoapps.io.buffer.BufferWriter;
+import static com.aoapps.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.model.ElementContext;
 import com.semanticcms.core.servlet.CaptureLevel;
 import com.semanticcms.core.servlet.PageRefResolver;

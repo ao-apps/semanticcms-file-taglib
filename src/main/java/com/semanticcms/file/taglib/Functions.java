@@ -1,6 +1,6 @@
 /*
  * semanticcms-file-taglib - Files nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2013, 2014, 2015, 2016, 2017  AO Industries, Inc.
+ * Copyright (C) 2013, 2014, 2015, 2016, 2017, 2021  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,9 +22,9 @@
  */
 package com.semanticcms.file.taglib;
 
-import static com.aoindustries.servlet.filter.FunctionContext.getRequest;
-import static com.aoindustries.servlet.filter.FunctionContext.getResponse;
-import static com.aoindustries.servlet.filter.FunctionContext.getServletContext;
+import static com.aoapps.servlet.filter.FunctionContext.getRequest;
+import static com.aoapps.servlet.filter.FunctionContext.getResponse;
+import static com.aoapps.servlet.filter.FunctionContext.getServletContext;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.file.servlet.FileUtils;
 import java.io.IOException;
