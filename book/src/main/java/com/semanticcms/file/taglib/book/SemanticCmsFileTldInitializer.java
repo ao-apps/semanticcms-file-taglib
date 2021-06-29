@@ -46,9 +46,9 @@ public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 			Maven.properties.getProperty("documented.javadoc.link.javase"),
 			Maven.properties.getProperty("documented.javadoc.link.javaee"),
 			// Self
-			"com.semanticcms.file.taglib", Maven.properties.getProperty("project.url") + "apidocs/",
+			"com.semanticcms.file.taglib", Maven.properties.getProperty("project.url") + "apidocs/com.semanticcms.file.taglib/",
 			// Dependencies
-			"com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/"
+			"com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/com.semanticcms.core.model/"
 		);
 	}
 }
