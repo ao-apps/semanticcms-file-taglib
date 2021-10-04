@@ -30,7 +30,7 @@ import com.semanticcms.file.servlet.FileUtils;
 import java.io.IOException;
 import javax.servlet.ServletException;
 
-final public class Functions {
+public final class Functions {
 
 	public static boolean hasFile(Page page, boolean recursive) throws ServletException, IOException {
 		return FileUtils.hasFile(
