@@ -41,7 +41,7 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 		<javadoc.taglibReference><![CDATA[<li><a target="${javadoc.target}" href="${project.url}semanticcms-file.tld/">Taglib Reference</a></li>]]></javadoc.taglibReference>
 		<!-- SonarQube -->
 		<sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
-		<sonar.organization>aoindustries</sonar.organization>
+		<sonar.organization>ao-apps</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<!-- TODO: Implement tests -->
 		<sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
@@ -76,20 +76,20 @@ along with semanticcms-file-taglib.  If not, see <http://www.gnu.org/licenses />
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/aoindustries/semanticcms-file-taglib.git</connection>
-		<developerConnection>scm:git:git@github.com:aoindustries/semanticcms-file-taglib.git</developerConnection>
-		<url>https://github.com/aoindustries/semanticcms-file-taglib</url>
+		<connection>scm:git:git://github.com/ao-apps/semanticcms-file-taglib.git</connection>
+		<developerConnection>scm:git:git@github.com:ao-apps/semanticcms-file-taglib.git</developerConnection>
+		<url>https://github.com/ao-apps/semanticcms-file-taglib</url>
 		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/aoindustries/semanticcms-file-taglib/issues</url>
+		<url>https://github.com/ao-apps/semanticcms-file-taglib/issues</url>
 	</issueManagement>
 
 	<ciManagement>
 		<system>GitHub Actions</system>
-		<url>https://github.com/aoindustries/semanticcms-file-taglib/actions</url>
+		<url>https://github.com/ao-apps/semanticcms-file-taglib/actions</url>
 	</ciManagement>
 
 	<repositories>
