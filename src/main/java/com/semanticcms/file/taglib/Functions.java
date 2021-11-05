@@ -30,7 +30,10 @@ import com.semanticcms.file.servlet.FileUtils;
 import java.io.IOException;
 import javax.servlet.ServletException;
 
-public final class Functions {
+public abstract class Functions {
+
+	/** Make no instances. */
+	private Functions() {throw new AssertionError();}
 
 	public static boolean hasFile(Page page, boolean recursive) throws ServletException, IOException {
 		return FileUtils.hasFile(
@@ -47,11 +50,5 @@ public final class Functions {
 			getServletContext(),
 			getRequest()
 		);
-	}
-
-	/**
-	 * Make no instances.
-	 */
-	private Functions() {
 	}
 }
