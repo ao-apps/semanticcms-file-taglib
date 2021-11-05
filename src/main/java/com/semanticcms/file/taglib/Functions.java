@@ -34,7 +34,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.servlet.ServletException;
 
-public final class Functions {
+public abstract class Functions {
+
+	/** Make no instances. */
+	private Functions() {throw new AssertionError();}
 
 	public static boolean hasFile(Page page, boolean recursive) throws ServletException, IOException {
 		return FileUtils.hasFile(
@@ -99,11 +102,5 @@ public final class Functions {
 		} catch(ValidationException e) {
 			throw new ServletException(e);
 		}
-	}
-
-	/**
-	 * Make no instances.
-	 */
-	private Functions() {
 	}
 }
