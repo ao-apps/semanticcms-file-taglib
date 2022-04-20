@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-file-taglib - Files nested within SemanticCMS pages and elements in a JSP environment.
-Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-file-taglib.
 
@@ -22,158 +22,158 @@ You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-file-taglib.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <taglib xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
-	version="2.1">
-	<!-- datePublished="2016-08-17T15:17:17-05:00" -->
-	<!-- dateModified="2016-11-11T14:18:26-06:00" -->
-	<description><![CDATA[
-		<p>@{description.html}</p>
-	]]></description>
-	<display-name>@{project.name}</display-name>
-	<tlib-version>
-		<!-- Release: @{project.version} -->
-		@{parsedVersion.majorVersion}.@{parsedVersion.minorVersion}.@{parsedVersion.incrementalVersion}
-	</tlib-version>
-	<short-name>file</short-name>
-	<uri>@{project.url}</uri>
-	<tag>
-		<!-- datePublished="2016-08-17T15:17:17-05:00" -->
-		<!-- dateModified="2021-06-16T13:20:50-05:00" -->
-		<description><![CDATA[
-			<p class="semanticcms-tag-reference-summary">
-				Writes a link to a file.
-				Supports optional <a href="https://semanticcms.com/openfile/servlet/">desktop integration mode</a>.
-			</p>
-			<p>
-				If <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
-				is enabled, the connection is from localhost, and not exporting,
-				creates a <code>file:///…</code> URL to the file so that it may be opened locally by the browser.
-				Will additionally open from the server-side when JavaScript enabled.
-			</p>
-			<p>
-				If there is no body, will write the filename followed by the file size.
-			</p>
-			<p>
-				<a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
-				must be explicitly enabled by setting the <code>com.semanticcms.openfile.servlet.OpenFile.enabled</code>
-				context parameter to <code>true</code>.
-			</p>
-			<p>
-				For security, <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
-				may only be called from localhost.  However, be careful when behind a proxy,
-				as external proxied requests can appear to come from localhost.
-			</p>
-			<p>
-				<a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a> may be enabled for development but disabled
-				in production by selectively including the <a href="https://semanticcms.com/openfile/servlet/">semanticcms-openfile-servlet</a>
-				dependency by profile.  By not including the dependency in production builds, the code is not simply disabled, but is not even included in production.
-			</p>
-			<p>
-				The onclick AJAX file opening is disabled when the documents are exporting,
-				as set by the <code>X-com-semanticcms-core-exporting: true</code> header.
-			</p>
-		]]></description>
-		<name>file</name>
-		<tag-class>com.semanticcms.file.taglib.FileTag</tag-class>
-		<body-content>scriptless</body-content>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The id used in URL anchors.
-					If not provided, is generated from the label.
-					Must be unique per page.
-					Ids generated from labels will be unique, but may change as page structure changes.
-				</p>
-			]]></description>
-			<name>id</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The book containing the file.
-					Defaults to the book of the current JSP file.
-				</p>
-			]]></description>
-			<name>book</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The page-relative path to the file.
-				</p>
-			]]></description>
-			<name>path</name>
-			<required>true</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					When <code>true</code>, the file is displayed on the page but not added to the list of files on the page.
-					Defaults to <code>false</code>.
-				</p>
-			]]></description>
-			<name>hidden</name>
-			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
-			<type>boolean</type>
-		</attribute>
-		<dynamic-attributes>true</dynamic-attributes>
-	</tag>
-	<function>
-		<!-- datePublished="2016-08-17T16:02:29-05:00" -->
-		<!-- dateModified="2016-11-08T02:37:18-06:00" -->
-		<description><![CDATA[
-			<p>
-				Checks if the given page, or optionally any of its child pages, has at least
-				one not-hidden File.
-			</p>
-		]]></description>
-		<name>hasFile</name>
-		<function-class>com.semanticcms.file.taglib.Functions</function-class>
-		<function-signature>boolean hasFile(com.semanticcms.core.model.Page,boolean)</function-signature>
-		<example><![CDATA[<code>${file:hasFile(page, recursive)}</code>]]></example>
-	</function>
-	<function>
-		<!-- datePublished="2016-10-16T19:01:01-05:00" -->
-		<!-- dateModified="2021-06-16T13:20:50-05:00" -->
-		<description><![CDATA[
-			<p class="semanticcms-tag-reference-summary">
-				Determines if local file opening is allowed.
-			</p>
-			<p>
-				Uses reflection to avoid hard dependency on <a href="https://semanticcms.com/openfile/servlet/">semanticcms-openfile-servlet</a>.
-			</p>
-			<p>
-				<a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
-				must be explicitly enabled by setting the <code>com.semanticcms.openfile.servlet.OpenFile.enabled</code>
-				context parameter to <code>true</code>.
-			</p>
-			<p>
-				For security, <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
-				may only be called from localhost.  However, be careful when behind a proxy,
-				as external proxied requests can appear to come from localhost.
-			</p>
-			<p>
-				<a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a> may be enabled for development but disabled
-				in production by selectively including the <a href="https://semanticcms.com/openfile/servlet/">semanticcms-openfile-servlet</a>
-				dependency by profile.  By not including the dependency in production builds, the code is not simply disabled, but is not even included in production.
-			</p>
-		]]></description>
-		<name>isOpenFileAllowed</name>
-		<function-class>com.semanticcms.file.taglib.Functions</function-class>
-		<function-signature>boolean isOpenFileAllowed()</function-signature>
-		<example><![CDATA[<code>${file:isOpenFileAllowed()}</code>]]></example>
-	</function>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+  version="2.1">
+  <!-- datePublished="2016-08-17T15:17:17-05:00" -->
+  <!-- dateModified="2016-11-11T14:18:26-06:00" -->
+  <description><![CDATA[
+    <p>@{description.html}</p>
+  ]]></description>
+  <display-name>@{project.name}</display-name>
+  <tlib-version>
+    <!-- Release: @{project.version} -->
+    @{parsedVersion.majorVersion}.@{parsedVersion.minorVersion}.@{parsedVersion.incrementalVersion}
+  </tlib-version>
+  <short-name>file</short-name>
+  <uri>@{project.url}</uri>
+  <tag>
+    <!-- datePublished="2016-08-17T15:17:17-05:00" -->
+    <!-- dateModified="2021-06-16T13:20:50-05:00" -->
+    <description><![CDATA[
+      <p class="semanticcms-tag-reference-summary">
+        Writes a link to a file.
+        Supports optional <a href="https://semanticcms.com/openfile/servlet/">desktop integration mode</a>.
+      </p>
+      <p>
+        If <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+        is enabled, the connection is from localhost, and not exporting,
+        creates a <code>file:///…</code> URL to the file so that it may be opened locally by the browser.
+        Will additionally open from the server-side when JavaScript enabled.
+      </p>
+      <p>
+        If there is no body, will write the filename followed by the file size.
+      </p>
+      <p>
+        <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+        must be explicitly enabled by setting the <code>com.semanticcms.openfile.servlet.OpenFile.enabled</code>
+        context parameter to <code>true</code>.
+      </p>
+      <p>
+        For security, <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+        may only be called from localhost.  However, be careful when behind a proxy,
+        as external proxied requests can appear to come from localhost.
+      </p>
+      <p>
+        <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a> may be enabled for development but disabled
+        in production by selectively including the <a href="https://semanticcms.com/openfile/servlet/">semanticcms-openfile-servlet</a>
+        dependency by profile.  By not including the dependency in production builds, the code is not simply disabled, but is not even included in production.
+      </p>
+      <p>
+        The onclick AJAX file opening is disabled when the documents are exporting,
+        as set by the <code>X-com-semanticcms-core-exporting: true</code> header.
+      </p>
+    ]]></description>
+    <name>file</name>
+    <tag-class>com.semanticcms.file.taglib.FileTag</tag-class>
+    <body-content>scriptless</body-content>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The id used in URL anchors.
+          If not provided, is generated from the label.
+          Must be unique per page.
+          Ids generated from labels will be unique, but may change as page structure changes.
+        </p>
+      ]]></description>
+      <name>id</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The book containing the file.
+          Defaults to the book of the current JSP file.
+        </p>
+      ]]></description>
+      <name>book</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The page-relative path to the file.
+        </p>
+      ]]></description>
+      <name>path</name>
+      <required>true</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          When <code>true</code>, the file is displayed on the page but not added to the list of files on the page.
+          Defaults to <code>false</code>.
+        </p>
+      ]]></description>
+      <name>hidden</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>boolean</type>
+    </attribute>
+    <dynamic-attributes>true</dynamic-attributes>
+  </tag>
+  <function>
+    <!-- datePublished="2016-08-17T16:02:29-05:00" -->
+    <!-- dateModified="2016-11-08T02:37:18-06:00" -->
+    <description><![CDATA[
+      <p>
+        Checks if the given page, or optionally any of its child pages, has at least
+        one not-hidden File.
+      </p>
+    ]]></description>
+    <name>hasFile</name>
+    <function-class>com.semanticcms.file.taglib.Functions</function-class>
+    <function-signature>boolean hasFile(com.semanticcms.core.model.Page,boolean)</function-signature>
+    <example><![CDATA[<code>${file:hasFile(page, recursive)}</code>]]></example>
+  </function>
+  <function>
+    <!-- datePublished="2016-10-16T19:01:01-05:00" -->
+    <!-- dateModified="2021-06-16T13:20:50-05:00" -->
+    <description><![CDATA[
+      <p class="semanticcms-tag-reference-summary">
+        Determines if local file opening is allowed.
+      </p>
+      <p>
+        Uses reflection to avoid hard dependency on <a href="https://semanticcms.com/openfile/servlet/">semanticcms-openfile-servlet</a>.
+      </p>
+      <p>
+        <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+        must be explicitly enabled by setting the <code>com.semanticcms.openfile.servlet.OpenFile.enabled</code>
+        context parameter to <code>true</code>.
+      </p>
+      <p>
+        For security, <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a>
+        may only be called from localhost.  However, be careful when behind a proxy,
+        as external proxied requests can appear to come from localhost.
+      </p>
+      <p>
+        <a href="https://semanticcms.com/openfile/servlet/apidocs/com.semanticcms.openfile.servlet/com/semanticcms/openfile/servlet/OpenFile.html">OpenFile</a> may be enabled for development but disabled
+        in production by selectively including the <a href="https://semanticcms.com/openfile/servlet/">semanticcms-openfile-servlet</a>
+        dependency by profile.  By not including the dependency in production builds, the code is not simply disabled, but is not even included in production.
+      </p>
+    ]]></description>
+    <name>isOpenFileAllowed</name>
+    <function-class>com.semanticcms.file.taglib.Functions</function-class>
+    <function-signature>boolean isOpenFileAllowed()</function-signature>
+    <example><![CDATA[<code>${file:isOpenFileAllowed()}</code>]]></example>
+  </function>
 </taglib>

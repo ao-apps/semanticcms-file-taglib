@@ -33,23 +33,25 @@ import javax.servlet.ServletException;
 
 public final class Functions {
 
-	/** Make no instances. */
-	private Functions() {throw new AssertionError();}
+  /** Make no instances. */
+  private Functions() {
+    throw new AssertionError();
+  }
 
-	public static boolean hasFile(Page page, boolean recursive) throws ServletException, IOException {
-		return FileUtils.hasFile(
-			getServletContext(),
-			getRequest(),
-			getResponse(),
-			page,
-			recursive
-		);
-	}
+  public static boolean hasFile(Page page, boolean recursive) throws ServletException, IOException {
+    return FileUtils.hasFile(
+      getServletContext(),
+      getRequest(),
+      getResponse(),
+      page,
+      recursive
+    );
+  }
 
-	public static boolean isOpenFileAllowed() throws ServletException {
-		return FileUtils.isOpenFileAllowed(
-			getServletContext(),
-			getRequest()
-		);
-	}
+  public static boolean isOpenFileAllowed() throws ServletException {
+    return FileUtils.isOpenFileAllowed(
+      getServletContext(),
+      getRequest()
+    );
+  }
 }
