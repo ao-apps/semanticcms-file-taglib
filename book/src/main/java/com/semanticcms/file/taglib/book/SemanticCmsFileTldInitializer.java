@@ -34,22 +34,22 @@ public class SemanticCmsFileTldInitializer extends TagReferenceInitializer {
 
   public SemanticCmsFileTldInitializer() throws ValidationException {
     super(
-      Maven.properties.getProperty("documented.name") + " Reference",
-      "Taglib Reference",
-      new ResourceRef(
-        new BookRef(
-          DomainName.valueOf("semanticcms.com"),
-          Path.valueOf("/file/taglib")
+        Maven.properties.getProperty("documented.name") + " Reference",
+        "Taglib Reference",
+        new ResourceRef(
+            new BookRef(
+                DomainName.valueOf("semanticcms.com"),
+                Path.valueOf("/file/taglib")
+            ),
+            Path.valueOf("/semanticcms-file.tld")
         ),
-        Path.valueOf("/semanticcms-file.tld")
-      ),
-      true,
-      Maven.properties.getProperty("documented.javadoc.link.javase"),
-      Maven.properties.getProperty("documented.javadoc.link.javaee"),
-      // Self
-      "com.semanticcms.file.taglib", Maven.properties.getProperty("project.url") + "apidocs/com.semanticcms.file.taglib/",
-      // Dependencies
-      "com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/com.semanticcms.core.model/"
+        true,
+        Maven.properties.getProperty("documented.javadoc.link.javase"),
+        Maven.properties.getProperty("documented.javadoc.link.javaee"),
+        // Self
+        "com.semanticcms.file.taglib", Maven.properties.getProperty("project.url") + "apidocs/com.semanticcms.file.taglib/",
+        // Dependencies
+        "com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/com.semanticcms.core.model/"
     );
   }
 }

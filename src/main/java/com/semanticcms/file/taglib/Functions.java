@@ -44,18 +44,18 @@ public final class Functions {
 
   public static boolean hasFile(Page page, boolean recursive) throws ServletException, IOException {
     return FileUtils.hasFile(
-      getServletContext(),
-      getRequest(),
-      getResponse(),
-      page,
-      recursive
+        getServletContext(),
+        getRequest(),
+        getResponse(),
+        page,
+        recursive
     );
   }
 
   public static boolean isOpenFileAllowed() throws ServletException {
     return FileUtils.isOpenFileAllowed(
-      getServletContext(),
-      getRequest()
+        getServletContext(),
+        getRequest()
     );
   }
 
@@ -87,8 +87,8 @@ public final class Functions {
   public static File getExeFileInDomain(String domain, String book, String path) throws ServletException, IOException, ValidationException {
     File file = getFileInDomain(domain, book, path, true);
     if (
-      !file.canExecute()
-      && !file.setExecutable(true)
+        !file.canExecute()
+            && !file.setExecutable(true)
     ) {
       throw new IOException("Unable to set executable flag: " + file.getPath());
     }
