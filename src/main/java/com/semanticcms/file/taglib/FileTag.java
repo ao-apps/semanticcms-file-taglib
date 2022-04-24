@@ -49,16 +49,19 @@ import javax.servlet.jsp.PageContext;
 public class FileTag extends ElementTag<File> {
 
   private ValueExpression book;
+
   public void setBook(ValueExpression book) {
     this.book = book;
   }
 
   private ValueExpression path;
+
   public void setPath(ValueExpression path) {
     this.path = path;
   }
 
   private boolean hidden;
+
   public void setHidden(boolean hidden) {
     this.hidden = hidden;
   }
@@ -69,21 +72,22 @@ public class FileTag extends ElementTag<File> {
   }
 
   private BufferResult writeMe;
+
   @Override
   protected void doBody(File file, CaptureLevel captureLevel) throws JspException, IOException {
     try {
-      final PageContext pageContext = (PageContext)getJspContext();
+      final PageContext pageContext = (PageContext) getJspContext();
       final ELContext elContext = pageContext.getELContext();
       final ServletContext servletContext = pageContext.getServletContext();
-      final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
+      final HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
       // Resolve file now to catch problems earlier even in meta mode
       file.setPageRef(
-        PageRefResolver.getPageRef(
-          servletContext,
-          request,
-          resolveValue(book, String.class, elContext),
-          resolveValue(path, String.class, elContext)
-        )
+          PageRefResolver.getPageRef(
+              servletContext,
+              request,
+              resolveValue(book, String.class, elContext),
+              resolveValue(path, String.class, elContext)
+          )
       );
       file.setHidden(hidden);
       super.doBody(file, captureLevel);
@@ -94,20 +98,20 @@ public class FileTag extends ElementTag<File> {
         capturedOut = null;
       }
       try {
-        HttpServletResponse response = (HttpServletResponse)pageContext.getResponse();
+        HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
         FileImpl.writeFileImpl(
-          servletContext,
-          request,
-          response,
-          (capturedOut == null) ? null : new DocumentEE(
             servletContext,
             request,
             response,
-            capturedOut,
-            false, // Do not add extra newlines to JSP
-            false  // Do not add extra indentation to JSP
-          ),
-          file
+            (capturedOut == null) ? null : new DocumentEE(
+                servletContext,
+                request,
+                response,
+                capturedOut,
+                false, // Do not add extra newlines to JSP
+                false  // Do not add extra indentation to JSP
+            ),
+            file
         );
       } finally {
         if (capturedOut != null) {
