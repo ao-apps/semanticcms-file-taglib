@@ -37,4 +37,4 @@ module com.semanticcms.file.taglib {
   requires com.semanticcms.core.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
   requires com.semanticcms.file.model; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-model</artifactId>
   requires com.semanticcms.file.servlet; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-servlet</artifactId>
-}
+} // TODO: Avoiding rewrite-maven-plugin-4.22.2 truncation
