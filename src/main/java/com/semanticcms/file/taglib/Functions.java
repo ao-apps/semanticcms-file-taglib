@@ -23,10 +23,11 @@
 
 package com.semanticcms.file.taglib;
 
-import com.aoapps.lang.validation.ValidationException;
 import static com.aoapps.servlet.filter.FunctionContext.getRequest;
 import static com.aoapps.servlet.filter.FunctionContext.getResponse;
 import static com.aoapps.servlet.filter.FunctionContext.getServletContext;
+
+import com.aoapps.lang.validation.ValidationException;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.resources.Resource;
 import com.semanticcms.file.renderer.html.FileUtils;
@@ -35,6 +36,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.servlet.ServletException;
 
+/**
+ * Tag library function implementations.
+ */
 public final class Functions {
 
   /** Make no instances. */
@@ -42,6 +46,10 @@ public final class Functions {
     throw new AssertionError();
   }
 
+  /**
+   * Checks if the given page, or optionally any of its child pages, has at least
+   * one not-hidden File.
+   */
   public static boolean hasFile(Page page, boolean recursive) throws ServletException, IOException {
     return FileUtils.hasFile(
         getServletContext(),
@@ -52,6 +60,9 @@ public final class Functions {
     );
   }
 
+  /**
+   * Determines if local file opening is allowed.
+   */
   public static boolean isOpenFileAllowed() throws ServletException {
     return FileUtils.isOpenFileAllowed(
         getServletContext(),
@@ -59,6 +70,9 @@ public final class Functions {
     );
   }
 
+  /**
+   * Gets the local file for a domain, book, and book-relative path.
+   */
   public static File getFileInDomain(String domain, String book, String path, boolean require) throws ServletException, IOException, ValidationException {
     Resource resource = com.semanticcms.core.taglib.Functions.getResourceInDomain(domain, book, path, require);
     if (resource == null) {
@@ -72,10 +86,16 @@ public final class Functions {
     return file;
   }
 
+  /**
+   * Gets the local file for a book and book-relative path in the domain of the current JSP file.
+   */
   public static File getFileInBook(String book, String path, boolean require) throws ServletException, IOException, ValidationException {
     return getFileInDomain(null, book, path, require);
   }
 
+  /**
+   * Gets the local file for a page-relative path in the domain and book of the current JSP file.
+   */
   public static File getFile(String path, boolean require) throws ServletException, IOException {
     try {
       return getFileInDomain(null, null, path, require);
@@ -84,6 +104,10 @@ public final class Functions {
     }
   }
 
+  /**
+   * Gets the local file for a domain, book, and book-relative path
+   * while making sure it is set {@linkplain File#canExecute() executable}.
+   */
   public static File getExeFileInDomain(String domain, String book, String path) throws ServletException, IOException, ValidationException {
     File file = getFileInDomain(domain, book, path, true);
     if (
@@ -95,10 +119,18 @@ public final class Functions {
     return file;
   }
 
+  /**
+   * Gets the local file for a book and book-relative path in the domain of the current JSP file
+   * while making sure it is set {@linkplain File#canExecute() executable}.
+   */
   public static File getExeFileInBook(String book, String path) throws ServletException, IOException, ValidationException {
     return getExeFileInDomain(null, book, path);
   }
 
+  /**
+   * Gets the local file for a page-relative path in the domain and book of the current JSP file
+   * while making sure it is set {@linkplain File#canExecute() executable}.
+   */
   public static File getExeFile(String path) throws ServletException, IOException {
     try {
       return getExeFileInDomain(null, null, path);
