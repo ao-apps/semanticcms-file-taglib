@@ -23,11 +23,12 @@
 
 package com.semanticcms.file.taglib;
 
+import static com.aoapps.taglib.AttributeUtils.resolveValue;
+
 import com.aoapps.encoding.taglib.EncodingBufferedTag;
 import com.aoapps.html.servlet.DocumentEE;
 import com.aoapps.io.buffer.BufferResult;
 import com.aoapps.io.buffer.BufferWriter;
-import static com.aoapps.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.model.ElementContext;
 import com.semanticcms.core.servlet.CaptureLevel;
 import com.semanticcms.core.servlet.PageRefResolver;
@@ -46,6 +47,9 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.PageContext;
 
+/**
+ * Writes a link to a file.
+ */
 public class FileTag extends ElementTag<File> {
 
   private ValueExpression book;

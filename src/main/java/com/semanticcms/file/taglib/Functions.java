@@ -26,11 +26,15 @@ package com.semanticcms.file.taglib;
 import static com.aoapps.servlet.filter.FunctionContext.getRequest;
 import static com.aoapps.servlet.filter.FunctionContext.getResponse;
 import static com.aoapps.servlet.filter.FunctionContext.getServletContext;
+
 import com.semanticcms.core.model.Page;
 import com.semanticcms.file.servlet.FileUtils;
 import java.io.IOException;
 import javax.servlet.ServletException;
 
+/**
+ * Tag library function implementations.
+ */
 public final class Functions {
 
   /** Make no instances. */
@@ -38,6 +42,10 @@ public final class Functions {
     throw new AssertionError();
   }
 
+  /**
+   * Checks if the given page, or optionally any of its child pages, has at least
+   * one not-hidden File.
+   */
   public static boolean hasFile(Page page, boolean recursive) throws ServletException, IOException {
     return FileUtils.hasFile(
         getServletContext(),
@@ -48,6 +56,9 @@ public final class Functions {
     );
   }
 
+  /**
+   * Determines if local file opening is allowed.
+   */
   public static boolean isOpenFileAllowed() throws ServletException {
     return FileUtils.isOpenFileAllowed(
         getServletContext(),
