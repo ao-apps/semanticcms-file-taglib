@@ -36,15 +36,15 @@ along with semanticcms-file-taglib.  If not, see <https://www.gnu.org/licenses/>
     <module.name>com.semanticcms.file.taglib.book</module.name>
     <!-- These values are copied from the project being documented -->
     <documented.artifactId>semanticcms-file-taglib</documented.artifactId>
-    <documented.name>SemanticCMS File Taglib²</documented.name>
+    <documented.name>SemanticCMS File Taglib</documented.name>
     <documented.description>Files nested within SemanticCMS pages and elements in a JSP environment.</documented.description>
 
     <description.html><![CDATA[Documentation for <a target="${javadoc.target}" href="${project.url}">${documented.name}</a> in <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
   </properties>
 
-  <name>SemanticCMS File Taglib² Book</name>
+  <name>SemanticCMS File Taglib Book</name>
   <url>https://semanticcms.com/file/taglib/</url>
-  <description>Documentation for SemanticCMS File Taglib² in SemanticCMS format.</description>
+  <description>Documentation for SemanticCMS File Taglib in SemanticCMS format.</description>
   <inceptionYear>2013</inceptionYear>
 
   <licenses>

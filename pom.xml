@@ -47,7 +47,7 @@ along with semanticcms-file-taglib.  If not, see <https://www.gnu.org/licenses/>
     <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
   </properties>
 
-  <name>SemanticCMS File Taglib²</name>
+  <name>SemanticCMS File Taglib</name>
   <url>https://semanticcms.com/file/taglib/</url>
   <description>Files nested within SemanticCMS pages and elements in a JSP environment.</description>
   <inceptionYear>2013</inceptionYear>
