@@ -126,7 +126,8 @@ public class FileTag extends ElementTag<File> {
       }
       try {
         HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
-        FileHtmlRenderer.writeFileImpl(servletContext,
+        FileHtmlRenderer.writeFileImpl(
+            servletContext,
             request,
             response,
             (capturedOut == null) ? null : new DocumentEE(
